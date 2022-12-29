@@ -1,2 +1,3 @@
 import { useLoading } from './useLoading/index';
-export { useLoading };
+import { useRestHeight } from './useRestHeight/index';
+export { useLoading, useRestHeight };

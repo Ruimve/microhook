@@ -1,3 +1,7 @@
+/**
+ * @author jingyu
+ * @description 处理接口或者 Promise 的 pending 状态
+ */
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
