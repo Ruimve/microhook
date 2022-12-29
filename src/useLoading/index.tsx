@@ -1,3 +1,8 @@
+/**
+ * @author jingyu
+ * @description 处理接口或者 Promise 的 pending 状态
+ */
+
 import { useState, useCallback } from "react";
 
 interface Response<T> {
