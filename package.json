@@ -8,7 +8,7 @@
     "build": "tsc",
     "test": "react-scripts test"
   },
-  "author": "",
+  "author": "jingyu",
   "license": "ISC",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
