@@ -5,5 +5,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 自动运行 tsc 打包
-        run: npm run build
+        run: npm install
         shell: bash
