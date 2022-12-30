@@ -1,7 +1,7 @@
 <div align="center">
   <h1>Nicehook</h1>
 </div>
-<p>简单且可复用的hook。</p>
+<p>简单且可复用的 React Hook。</p>
 <hr />
 <!-- prettier-ignore-start -->
 [![Build Status][build-badge]][build]
