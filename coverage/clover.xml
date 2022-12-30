@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1672391720765" clover="3.2.0">
+  <project timestamp="1672391720765" name="All files">
+    <metrics statements="43" coveredstatements="42" conditionals="15" coveredconditionals="11" methods="17" coveredmethods="17" elements="75" coveredelements="70" complexity="0" loc="43" ncloc="43" packages="2" files="2" classes="2"/>
+    <package name="useLoading">
+      <metrics statements="9" coveredstatements="8" conditionals="1" coveredconditionals="1" methods="3" coveredmethods="3"/>
+      <file name="index.tsx" path="/Users/ruijie/Desktop/packages/nicehook/src/useLoading/index.tsx">
+        <metrics statements="9" coveredstatements="8" conditionals="1" coveredconditionals="1" methods="3" coveredmethods="3"/>
+        <line num="14" count="4" type="stmt"/>
+        <line num="21" count="4" type="stmt"/>
+        <line num="23" count="4" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
+        <line num="26" count="2" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="37" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="useRestHeight">
+      <metrics statements="34" coveredstatements="34" conditionals="14" coveredconditionals="10" methods="14" coveredmethods="14"/>
+      <file name="index.tsx" path="/Users/ruijie/Desktop/packages/nicehook/src/useRestHeight/index.tsx">
+        <metrics statements="34" coveredstatements="34" conditionals="14" coveredconditionals="10" methods="14" coveredmethods="14"/>
+        <line num="30" count="9" type="cond" truecount="2" falsecount="0"/>
+        <line num="31" count="9" type="stmt"/>
+        <line num="33" count="9" type="stmt"/>
+        <line num="35" count="21" type="cond" truecount="1" falsecount="1"/>
+        <line num="37" count="21" type="cond" truecount="2" falsecount="0"/>
+        <line num="38" count="19" type="stmt"/>
+        <line num="40" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="44" count="9" type="stmt"/>
+        <line num="45" count="11" type="stmt"/>
+        <line num="48" count="9" type="stmt"/>
+        <line num="49" count="6" type="stmt"/>
+        <line num="50" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="51" count="5" type="stmt"/>
+        <line num="52" count="6" type="stmt"/>
+        <line num="53" count="5" type="stmt"/>
+        <line num="54" count="5" type="stmt"/>
+        <line num="56" count="1" type="stmt"/>
+        <line num="59" count="9" type="stmt"/>
+        <line num="60" count="6" type="stmt"/>
+        <line num="61" count="6" type="stmt"/>
+        <line num="64" count="9" type="stmt"/>
+        <line num="65" count="6" type="stmt"/>
+        <line num="69" count="9" type="stmt"/>
+        <line num="70" count="9" type="stmt"/>
+        <line num="72" count="9" type="cond" truecount="1" falsecount="1"/>
+        <line num="74" count="9" type="cond" truecount="1" falsecount="1"/>
+        <line num="75" count="9" type="stmt"/>
+        <line num="79" count="9" type="stmt"/>
+        <line num="81" count="5" type="stmt"/>
+        <line num="84" count="5" type="stmt"/>
+        <line num="87" count="5" type="stmt"/>
+        <line num="89" count="5" type="stmt"/>
+        <line num="90" count="5" type="stmt"/>
+        <line num="94" count="9" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

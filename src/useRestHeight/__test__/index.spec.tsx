@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { render, renderHook, screen } from "@testing-library/react";
 
-import { useRestHeight } from './index';
+import { useRestHeight } from '../index';
 
 describe('测试 useRestHeight', () => {
   beforeAll(() => {

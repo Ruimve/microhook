@@ -6,7 +6,8 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "test": "react-scripts test"
+    "test": "react-scripts test",
+    "cov": "react-scripts test --coverage"
   },
   "author": "jingyu",
   "license": "ISC",

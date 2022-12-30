@@ -1,7 +1,7 @@
 import { renderHook } from "@testing-library/react";
 import { act } from "react-dom/test-utils";
 
-import { useLoading } from './index';
+import { useLoading } from '../index';
 
 /**
  * 模拟请求

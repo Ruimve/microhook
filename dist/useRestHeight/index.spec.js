@@ -22,17 +22,17 @@ describe('测试 useRestHeight', () => {
         const [restHeight] = result.current;
         expect(restHeight).toEqual(0);
     });
-    // it('当容器 container 高度为 200, 并且没有子元素时, 高度为 200', () => {
-    //   const getBoundingClientRect = jest.fn().mockReturnValue({ height: 200 });
-    //   HTMLElement.prototype.getBoundingClientRect = getBoundingClientRect;
-    //   render(<div className="container" style={{ height: 200 }}></div>)
-    //   const { result } = renderHook(props => useRestHeight(props), {
-    //     initialProps: {
-    //       container: '.container'
-    //     }
-    //   });
-    //   expect(result.current[0]).toEqual(200);
-    // });
+    it('当容器 container 高度为 200, 并且没有子元素时, 高度为 200', () => {
+        const getBoundingClientRect = jest.fn().mockReturnValue({ height: 200 });
+        HTMLElement.prototype.getBoundingClientRect = getBoundingClientRect;
+        render(React.createElement("div", { className: "container", style: { height: 200 } }));
+        const { result } = renderHook(props => useRestHeight(props), {
+            initialProps: {
+                container: '.container'
+            }
+        });
+        expect(result.current[0]).toEqual(200);
+    });
     it('当容器 container 高度为 200, 有两个子元素高度分别为 20、40, 高度为 140', () => {
         const getBoundingClientRect = jest.fn()
             .mockReturnValue({ height: 200 })
