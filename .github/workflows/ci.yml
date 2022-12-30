@@ -6,3 +6,4 @@ jobs:
     steps:
       - name: 自动运行 tsc 打包
         run: npm run build
+        shell: bash
