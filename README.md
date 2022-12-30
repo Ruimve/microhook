@@ -5,6 +5,6 @@
 <hr />
 <!-- prettier-ignore-start -->
 
-![Status](https://github.com/robot12580/nicehook/actions/workflows/ci.yml/badge.svg)
+(https://github.com/robot12580/nicehook/actions/workflows/ci.yml/badge.svg)
 
 <!-- prettier-ignore-end -->
