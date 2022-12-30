@@ -1,4 +1,4 @@
-name: Typescript Build
+name: Build
 on: push
 jobs:
   ts-build:
