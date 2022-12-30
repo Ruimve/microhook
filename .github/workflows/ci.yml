@@ -4,6 +4,8 @@ jobs:
   ts-build:
     runs-on: ubuntu-latest
     steps:
-      - name: 自动运行 tsc 打包
-        run: npm install
-        shell: bash
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      - run: npm run build
