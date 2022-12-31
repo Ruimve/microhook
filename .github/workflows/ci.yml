@@ -1,7 +1,25 @@
 name: Build
 on: push
 jobs:
-  ts-build:
+  runTSCheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - run: npm install
+      - run: npm run ci
+  runTest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - run: npm install
+      - run: npm run test
+  runBuild:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -10,4 +28,3 @@ jobs:
           node-version: '16'
       - run: npm install
       - run: npm run build
-      - run: npm run test
