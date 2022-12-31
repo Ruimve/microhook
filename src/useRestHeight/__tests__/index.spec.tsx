@@ -13,8 +13,8 @@ describe('测试 useRestHeight', () => {
           disconnect: jest.fn(),
           unobserve: jest.fn()
         }
-      }
-  })
+      };
+  });
 
   it('当容器 container 不存在时, 高度为 0', () => {
     const { result } = renderHook(props => useRestHeight(props), {
@@ -30,7 +30,7 @@ describe('测试 useRestHeight', () => {
     const getBoundingClientRect = jest.fn().mockReturnValue({ height: 200 });
     HTMLElement.prototype.getBoundingClientRect = getBoundingClientRect;
 
-    render(<div className="container" style={{ height: 200 }}></div>)
+    render(<div className="container" style={{ height: 200 }}></div>);
     const { result } = renderHook(props => useRestHeight(props), {
       initialProps: {
         container: '.container'
@@ -56,7 +56,7 @@ describe('测试 useRestHeight', () => {
         <div className="first" style={{ height: 20 }} ></div>
         <div className="second" style={{ height: 40 }} ></div>
       </div>
-    )
+    );
     const { result } = renderHook(props => useRestHeight(props), {
       initialProps: {
         container: '.container',
@@ -83,7 +83,7 @@ describe('测试 useRestHeight', () => {
         <div className="first" style={{ height: 20 }} ></div>
         <div className="second" style={{ height: 40 }} ></div>
       </div>
-    )
+    );
     const { result } = renderHook(props => useRestHeight(props), {
       initialProps: {
         container: '.container',

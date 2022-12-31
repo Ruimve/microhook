@@ -36,7 +36,7 @@ describe('测试 useLoading', () => {
           resolve(people);
         }, 1000);
       });
-    })
+    });
     const { result } = renderHook(() => useLoading<string>(callback));
     await act(async () => {
       await result.current[1]();
