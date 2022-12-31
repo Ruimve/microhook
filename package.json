@@ -2,11 +2,10 @@
   "name": "nicehook",
   "version": "1.0.3",
   "description": "简单且可复用的 React Hook",
-  "type": "module",
   "main": "es/index.js",
   "types": "es/lib/index.d.ts",
   "scripts": {
-    "build": "rollup -c",
+    "build": "rollup -c --bundleConfigAsCjs",
     "test": "jest",
     "cov": "jest --coverage"
   },
@@ -39,6 +38,7 @@
     "tslib": "^2.4.1"
   },
   "jest": {
-    "testEnvironment": "jsdom"
+    "testEnvironment": "jsdom",
+    "testMatch":["**/*.spec.{js,jsx,ts,tsx}"]
   }
 }
