@@ -15,5 +15,6 @@
 <!-- prettier-ignore-start -->
 
 ![Build Status](https://github.com/robot12580/nicehook/actions/workflows/ci.yml/badge.svg)
+[![Coverage Status](https://coveralls.io/repos/github/robot12580/nicehook/badge.svg?branch=master)](https://coveralls.io/github/robot12580/nicehook?branch=master)
 
 <!-- prettier-ignore-end -->
