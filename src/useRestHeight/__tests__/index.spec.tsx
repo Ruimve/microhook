@@ -87,11 +87,29 @@ describe('测试 useRestHeight', () => {
     const { result } = renderHook(props => useRestHeight(props), {
       initialProps: {
         container: '.container',
-        children: ['.first', '.second'],
+        children: [
+          { element: '.first', observer: true },
+          { element: '.second', observer: false }
+        ],
         offsets: [5, 10]
       }
     });
 
     expect(result.current[0]).toEqual(125);
   });
+
+  it('模拟 useRef', () => {
+    const getBoundingClientRect = jest.fn().mockReturnValue({ height: 200 });
+    HTMLElement.prototype.getBoundingClientRect = getBoundingClientRect;
+
+    render(<div className="container" style={{ height: 200 }}>useRef</div>);
+    const ref = { current: screen.getAllByText('useRef')[0] };
+    const { result } = renderHook(props => useRestHeight(props), {
+      initialProps: {
+        container: ref
+      }
+    });
+
+    expect(result.current[0]).toEqual(200);
+  })
 });
