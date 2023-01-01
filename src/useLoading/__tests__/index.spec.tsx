@@ -43,6 +43,24 @@ describe('测试 useLoading', () => {
     });
     expect(result.current[0].data).toEqual(people);
   });
+
+  it('异常捕获', async () => {
+    const error = { message: '异常捕获' };
+    const callback = jest.fn();
+    callback.mockImplementation(() => {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          reject(error);
+        }, 1000);
+      });
+    });
+    const { result } = renderHook(() => useLoading<string>(callback));
+    await act(async () => {
+      await result.current[1]();
+    });
+
+    expect(result.current[0].data).toEqual(error);
+  });
 });
 
 
