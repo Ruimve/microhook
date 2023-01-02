@@ -53,7 +53,7 @@ A promise represents a single asynchronous operation that hasn’t been complete
 
 Get `pending` state and resulting value via `useLoading`:
 ```tsx
-import React from 'react';
+import { useLoading } from 'nicehook';
 
 function fetchData(keyword: string) {
   return new Promise<string>((resolve, reject) => {
@@ -82,9 +82,43 @@ function Example() {
 
 ```
 
-
 ### useRestHeight
 
+Get the remaining height of the container and add a [ResizeObserver][resize-observer] via `useRestHeight`:
+
+```tsx
+import { useRef } from 'react';
+import { useRestHeight } from 'nicehook';
+
+function Example() {
+  const container = useRef<HTMLElement>();
+
+  const box1 = useRef<HTMLElement>();
+
+  const box2 = useRef<HTMLElement>();
+
+  const [resetHeight] = useRestHeight({
+    container: {element: container, observer: true},
+    children: [box2, {
+      element: '.box1',
+      observer: true
+    }],
+    offsets: [1, 2, 3, 4]
+  });
+
+  return (
+    <div>
+      <div className="App" ref={container as any}>
+        <div className='box1' ref={box1 as any}>
+          <textarea name="" id="" cols={30} rows={10}></textarea>
+        </div>
+        <div className='box2' ref={box2 as any}></div>
+        {resetHeight}
+      </div>
+    </div>
+  );
+}
+```
 
 
 [npm]: https://www.npmjs.com/
@@ -94,3 +128,4 @@ function Example() {
 [coverage]: https://coveralls.io/repos/github/robot12580/nicehook/badge.svg?branch=master
 [coverage-badge]: https://coveralls.io/repos/github/robot12580/nicehook/badge.svg?branch=master
 [hooks]: https://react.docschina.org/docs/hooks-custom.html
+[resize-observer]: https://developer.mozilla.org/zh-CN/docs/Web/API/ResizeObserver
