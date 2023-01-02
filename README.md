@@ -17,6 +17,12 @@
 [![Build Status][build-badge]][build]
 [![Code Coverage][coverage-badge]][coverage]
 [![version][version-badge]][package]
+[![downloads][downloads-badge]][npmtrends]
+[![MIT License][license-badge]][license]
+[![PRs Welcome][prs-badge]][prs]
+
+[![Watch on GitHub][github-watch-badge]][github-watch]
+[![Star on GitHub][github-star-badge]][github-star]
 
 ## Table of Contents
 
@@ -127,9 +133,19 @@ function Example() {
 [node]: https://nodejs.org
 [build-badge]:https://img.shields.io/github/workflow/status/nicehook/validate?logo=github&style=flat-square
 [build]: https://github.com/robot12580/nicehook/actions/workflows/ci.yml/badge.svg
-[coverage-badge]: https://img.shields.io/codecov/c/github/nicehook.svg?style=flat-square
-[coverage]: https://coveralls.io/repos/github/robot12580/nicehook/badge.svg?branch=master
+[coverage-badge]: https://img.shields.io/codecov/c/github/robot12580/nicehook.svg?style=flat-square
+[coverage]: https://codecov.io/github/nicehook
 [version-badge]: https://img.shields.io/npm/v/nicehook.svg?style=flat-square
 [package]: https://www.npmjs.com/package/nicehook
+[downloads-badge]: https://img.shields.io/npm/dm/nicehook.svg?style=flat-square
+[npmtrends]: http://www.npmtrends.com/nicehook
+[license-badge]: https://img.shields.io/npm/l/nicehook.svg?style=flat-square
+[license]: https://github.com/robot12580/nicehook/blob/master/LICENSE
+[prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
+[prs]: http://makeapullrequest.com
+[github-watch-badge]: https://img.shields.io/github/watchers/robot12580/nicehook.svg?style=social
+[github-watch]: https://github.com/robot12580/nicehook/watchers
+[github-star-badge]: https://img.shields.io/github/stars/robot12580/nicehook.svg?style=social
+[github-star]: https://github.com/robot12580/nicehook/stargazers
 [hooks]: https://react.docschina.org/docs/hooks-custom.html
 [resize-observer]: https://developer.mozilla.org/zh-CN/docs/Web/API/ResizeObserver
