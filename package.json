@@ -1,7 +1,7 @@
 {
   "name": "nicehook",
   "version": "1.0.4",
-  "description": "简单且可复用的 React Hook",
+  "description": "简单且可复用的自定义 React Hook",
   "main": "es/index.js",
   "types": "es/lib/index.d.ts",
   "scripts": {
