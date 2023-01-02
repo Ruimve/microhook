@@ -39,7 +39,7 @@ npm install nicehook --save
 ```
 or
 
-for installation via [yarn][yarn]
+for installation via [yarn][yarn]:
 ```
 yarn add nicehook
 ```
@@ -51,7 +51,7 @@ yarn add nicehook
 
 A promise represents a single asynchronous operation that hasn’t been completed yet, but is expected in the future. There are three states of promises, pending, fulfilled and rejected.
 
-Get `pending` state and resulting value via `useLoading`.
+Get `pending` state and resulting value via `useLoading`:
 ```tsx
 import React from 'react';
 
