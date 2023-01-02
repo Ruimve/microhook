@@ -14,8 +14,9 @@
 <hr />
 <!-- prettier-ignore-start -->
 
-![Build Status][build-badge]
-![coverage][coverage-badge]
+[![Build Status][build-badge]][build]
+[![Code Coverage][coverage-badge]][coverage]
+[![version][version-badge]][package]
 
 ## Table of Contents
 
@@ -124,8 +125,11 @@ function Example() {
 [npm]: https://www.npmjs.com/
 [yarn]: https://classic.yarnpkg.com
 [node]: https://nodejs.org
-[build-badge]: https://github.com/robot12580/nicehook/actions/workflows/ci.yml/badge.svg
+[build-badge]:https://img.shields.io/github/workflow/status/nicehook/validate?logo=github&style=flat-square
+[build]: https://github.com/robot12580/nicehook/actions/workflows/ci.yml/badge.svg
+[coverage-badge]: https://img.shields.io/codecov/c/github/nicehook.svg?style=flat-square
 [coverage]: https://coveralls.io/repos/github/robot12580/nicehook/badge.svg?branch=master
-[coverage-badge]: https://coveralls.io/repos/github/robot12580/nicehook/badge.svg?branch=master
+[version-badge]: https://img.shields.io/npm/v/nicehook.svg?style=flat-square
+[package]: https://www.npmjs.com/package/nicehook
 [hooks]: https://react.docschina.org/docs/hooks-custom.html
 [resize-observer]: https://developer.mozilla.org/zh-CN/docs/Web/API/ResizeObserver

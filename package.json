@@ -1,14 +1,13 @@
 {
   "name": "nicehook",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Simple and reusable Hooks",
   "main": "es/index.js",
   "types": "es/lib/index.d.ts",
   "scripts": {
     "build": "rollup -c --bundleConfigAsCjs",
     "ci": "tsc",
-    "test": "jest",
-    "cov": "jest --coverage --coverageReporters=text-lcov | coveralls"
+    "test": "jest"
   },
   "author": "jingyu",
   "license": "ISC",
@@ -33,7 +32,6 @@
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.10",
     "babel-jest": "^29.3.1",
-    "coveralls": "^3.1.1",
     "jest": "^29.3.1",
     "jest-environment-jsdom": "^29.3.1",
     "rollup": "^3.9.0",
@@ -43,6 +41,11 @@
     "testEnvironment": "jsdom",
     "testMatch": [
       "**/*.spec.{js,jsx,ts,tsx}"
+    ],
+    "collectCoverage": true,
+    "coverageReporters": [
+      "text",
+      "cobertura"
     ]
   }
 }
