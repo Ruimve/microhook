@@ -127,7 +127,6 @@ function Example() {
 [node]: https://nodejs.org
 [build-badge]:https://img.shields.io/github/workflow/status/nicehook/validate?logo=github&style=flat-square
 [build]: https://github.com/robot12580/nicehook/actions/workflows/ci.yml/badge.svg
-[coverage]: https://coveralls.io/repos/github/robot12580/nicehook/badge.svg?branch=master
 [coverage-badge]: https://img.shields.io/codecov/c/github/nicehook.svg?style=flat-square
 [coverage]: https://coveralls.io/repos/github/robot12580/nicehook/badge.svg?branch=master
 [version-badge]: https://img.shields.io/npm/v/nicehook.svg?style=flat-square
