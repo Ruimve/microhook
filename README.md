@@ -17,7 +17,7 @@
 ![Build Status][build-badge]
 ![coverage][coverage-badge]
 
-## 目录
+## Table of Contents
 
 - [Introducing Hooks](#introducing-hooks)
 - [Installation](#installation)
@@ -28,10 +28,7 @@
 ## Introducing Hooks
 
 [Hooks][hooks] are a new addition in React 16.8. They let you use state and other React features without writing a class.
-
 Building your own Hooks lets you extract component logic into reusable functions.
-
-[React Hooks](https://react.docschina.org/docs/hooks-custom.html)
 
 ## Installation
 
@@ -51,6 +48,40 @@ yarn add nicehook
 ## Hooks
 
 ### useLoading
+
+A promise represents a single asynchronous operation that hasn’t been completed yet, but is expected in the future. There are three states of promises, pending, fulfilled and rejected.
+
+Get `pending` state and resulting value via `useLoading`.
+```tsx
+import React from 'react';
+
+function fetchData(keyword: string) {
+  return new Promise<string>((resolve, reject) => {
+    setTimeout(() => {
+      resolve(keyword + ': data received')
+    }, 2000)
+  })
+}
+
+function Example() {
+  const [result, requestData] = useLoading<string>(fetchData);
+
+  const handleClick = () => {
+    requestData('1')
+  }
+
+  return <div>
+    <button onClick={handleClick}>start fetch</button>
+    <div>
+      {
+        result.loading ? 'loading' : result.data
+      }
+    </div>
+  </div>
+}
+
+```
+
 
 ### useRestHeight
 
