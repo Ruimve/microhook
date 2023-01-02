@@ -3,7 +3,6 @@
 
   <a href="https://github.com/robot12580">
     <img
-      height="80"
       width="80"
       alt="robot12580"
       src="./material/dog2.png"
