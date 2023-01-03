@@ -40,7 +40,7 @@ Building your own Hooks lets you extract component logic into reusable functions
 ## Installation
 
 This module is distributed via [npm][npm] which is bundled with [node][node] and
-should be installed as one of your project's `devDependencies`:
+should be installed as one of your project's `dependencies`:
 ```
 npm install nicehook --save
 ```
@@ -98,14 +98,12 @@ import { useRef } from 'react';
 import { useRestHeight } from 'nicehook';
 
 function Example() {
-  const container = useRef<HTMLElement>();
-
-  const box1 = useRef<HTMLElement>();
-
-  const box2 = useRef<HTMLElement>();
+  const container = useRef<any>();
+  const box1 = useRef<any>();
+  const box2 = useRef<any>();
 
   const [resetHeight] = useRestHeight({
-    container: {element: container, observer: true},
+    container: { element: container, observer: true },
     children: [box2, {
       element: '.box1',
       observer: true
@@ -115,11 +113,11 @@ function Example() {
 
   return (
     <div>
-      <div className="App" ref={container as any}>
-        <div className='box1' ref={box1 as any}>
+      <div className="App" ref={container}>
+        <div className='box1' ref={box1}>
           <textarea name="" id="" cols={30} rows={10}></textarea>
         </div>
-        <div className='box2' ref={box2 as any}></div>
+        <div className='box2' ref={box2}></div>
         {resetHeight}
       </div>
     </div>
