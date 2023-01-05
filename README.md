@@ -31,6 +31,7 @@
 - [Hooks](#hooks)
   - [useLoading](#useloading)
   - [useRestHeight](#userestheight)
+  - [useBus](#usebus)
 
 ## Introducing Hooks
 
