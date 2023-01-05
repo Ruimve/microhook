@@ -47,5 +47,6 @@ function useBus() {
 }
 
 export {
-  useBus
+  useBus,
+  Bus
 }
