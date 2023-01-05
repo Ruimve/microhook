@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 
 /******************************************************************************
 Copyright (c) Microsoft Corporation.
@@ -110,4 +110,44 @@ function useRestHeight(props) {
     return [restHeight, updateRestHeight];
 }
 
-export { useLoading, useRestHeight };
+class AbstractBus {
+    constructor(bus) {
+        this.bus = bus;
+    }
+}
+class Bus extends AbstractBus {
+    constructor(bus) {
+        super(bus);
+        this.bus = bus;
+    }
+    on(name, callback) {
+        if (this.bus.has(name)) {
+            const fns = this.bus.get(name) || [];
+            this.bus.set(name, [...fns, callback]);
+        }
+        else {
+            this.bus.set(name, [callback]);
+        }
+    }
+    emit(name, ...args) {
+        if (this.bus.has(name)) {
+            const fns = this.bus.get(name) || [];
+            fns.forEach(fn => fn.call(null, ...args));
+        }
+    }
+    off(name) {
+        this.bus.delete(name);
+    }
+    destory() {
+        this.bus.clear();
+    }
+}
+function useBus() {
+    const ref = useRef();
+    if (!ref.current) {
+        ref.current = new Bus(new Map());
+    }
+    return ref.current;
+}
+
+export { useBus, useLoading, useRestHeight };
