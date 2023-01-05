@@ -31,6 +31,7 @@
 - [Hooks](#hooks)
   - [useLoading](#useloading)
   - [useRestHeight](#userestheight)
+  - [useBus](#usebus)
 
 ## Introducing Hooks
 
@@ -40,7 +41,7 @@ Building your own Hooks lets you extract component logic into reusable functions
 ## Installation
 
 This module is distributed via [npm][npm] which is bundled with [node][node] and
-should be installed as one of your project's `devDependencies`:
+should be installed as one of your project's `dependencies`:
 ```
 npm install nicehook --save
 ```
@@ -70,7 +71,7 @@ function fetchData(keyword: string) {
   })
 }
 
-function Example() {
+function Demo() {
   const [result, requestData] = useLoading<string>(fetchData);
 
   const handleClick = () => {
@@ -86,7 +87,6 @@ function Example() {
     </div>
   </div>
 }
-
 ```
 
 ### useRestHeight
@@ -97,15 +97,13 @@ Get the remaining height of the container and add a [ResizeObserver][resize-obse
 import { useRef } from 'react';
 import { useRestHeight } from 'nicehook';
 
-function Example() {
-  const container = useRef<HTMLElement>();
-
-  const box1 = useRef<HTMLElement>();
-
-  const box2 = useRef<HTMLElement>();
+function Demo() {
+  const container = useRef<any>();
+  const box1 = useRef<any>();
+  const box2 = useRef<any>();
 
   const [resetHeight] = useRestHeight({
-    container: {element: container, observer: true},
+    container: { element: container, observer: true },
     children: [box2, {
       element: '.box1',
       observer: true
@@ -115,16 +113,77 @@ function Example() {
 
   return (
     <div>
-      <div className="App" ref={container as any}>
-        <div className='box1' ref={box1 as any}>
+      <div className="App" ref={container}>
+        <div className='box1' ref={box1}>
           <textarea name="" id="" cols={30} rows={10}></textarea>
         </div>
-        <div className='box2' ref={box2 as any}></div>
+        <div className='box2' ref={box2}></div>
         {resetHeight}
       </div>
     </div>
   );
 }
+```
+
+## useBus
+
+Sometimes it is difficult to pass events between peer Components, we can create a bus via `useBus` to complete it easily and it's returned object will persist for the full lifetime of the component.
+
+```tsx
+interface Props {
+  bus: Bus;
+}
+
+function Iuput(props: Props) {
+  const { bus } = props;
+  const ref = useRef<any>();
+  useEffect(() => {
+    bus.on('focus', (value: string) => {
+      ref.current?.focus();
+    });
+    bus.on('change', (value: string) => {
+      if(ref.current) {
+        ref.current.value = value;
+      }
+    });
+  }, [ref]);
+  return (
+    <div>
+      <input type="text" ref={ref} />
+    </div>
+  )
+}
+
+function Button(props: Props) {
+  const { bus } = props;
+  return (
+    <div>
+      <button onClick={() => bus.emit('focus')}>emit focus</button>
+      <button onClick={() => bus.emit('change', 'success')}>emit change</button>
+    </div>
+  )
+}
+
+function Demo() {
+  const bus = useBus();
+  const [visible, setVisible] = useState<boolean>(true);
+
+  return (
+    <div>
+      {visible && (
+        <div>
+          <Iuput bus={bus} />
+          <Button bus={bus} />
+        </div>
+      )}
+
+      <button onClick={() => bus.off('change')}>清除 change 事件</button>
+      <button onClick={() => bus.destory()}>清除所有事件</button>
+      <button onClick={() => setVisible(!visible)}>重新渲染</button>
+    </div>
+  )
+}
+export default Demo;
 ```
 
 
