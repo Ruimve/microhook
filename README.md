@@ -130,6 +130,10 @@ function Demo() {
 Sometimes it is difficult to pass events between peer Components, we can create a bus via `useBus` to complete it easily and it's returned object will persist for the full lifetime of the component.
 
 ```tsx
+import { useEffect, useRef, useState } from 'react';
+import { useBus } from 'nicehook';
+import { Bus } from 'nicehook/es/lib/useBus'
+
 interface Props {
   bus: Bus;
 }
@@ -183,7 +187,6 @@ function Demo() {
     </div>
   )
 }
-export default Demo;
 ```
 
 
