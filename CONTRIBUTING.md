@@ -2,13 +2,17 @@
 
 Thanks for being willing to contribute!
 
-## Committing and Pushing changes
+## How should I write my commits?
 
-Your commit message should follow the following rules:
+Please assumes you are using [Conventional Commit messages][conventional-commit-message].
+
+The most important prefixes you should have in mind are:
 ```
-feat: add feature
-fix: fix bug
-test: update test
-docs: update documents
-chore: build about
+fix: which represents bug fixes, and correlates to a SemVer patch.
+feat: which represents a new feature, and correlates to a SemVer minor.
+feat!:, or fix!:, refactor!:, etc., which represent a breaking change (indicated by the !) and will result in a SemVer major.
 ```
+
+
+
+[conventional-commit-message]: https://www.conventionalcommits.org
