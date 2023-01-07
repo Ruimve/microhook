@@ -33,6 +33,7 @@
   - [useRestHeight](#userestheight)
   - [useBus](#usebus)
   - [useToggle](#usetoggle)
+  - [useBoolean](#useboolean)
 
 ## Introducing Hooks
 
