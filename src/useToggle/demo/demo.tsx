@@ -1,4 +1,9 @@
 import { useToggle } from '../index';
+/**
+ * 安装包之后替换成 
+ * import { useToggle } from 'nicehook';
+ */
+
 
 function Demo() {
   const firstHost = { name: '小明' };

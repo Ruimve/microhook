@@ -1,4 +1,9 @@
 import { useBoolean } from '../index';
+/**
+ * 安装包之后替换成 
+ * import { useBoolean } from 'nicehook';
+ */
+
 
 function Demo() {
   const [value, toggle] = useBoolean(false);
