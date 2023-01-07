@@ -7,7 +7,7 @@ export default {
     file:'es/index.js',
     format:'es'
   },
-  external: ['react'],
+  external: ['react', 'lodash'],
   plugins: [
     nodeResolve(),
     typescript(),
