@@ -32,6 +32,7 @@
   - [useLoading](#useloading)
   - [useRestHeight](#userestheight)
   - [useBus](#usebus)
+  - [useToggle](#usetoggle)
 
 ## Introducing Hooks
 
@@ -59,136 +60,33 @@ yarn add nicehook
 
 A promise represents a single asynchronous operation that hasn’t been completed yet, but is expected in the future. There are three states of promises, pending, fulfilled and rejected.
 
-Get `pending` state and resulting value via `useLoading`:
-```tsx
-import { useLoading } from 'nicehook';
+Get `pending` state and resulting value via `useLoading`.
 
-function fetchData(keyword: string) {
-  return new Promise<string>((resolve, reject) => {
-    setTimeout(() => {
-      resolve(keyword + ': data received')
-    }, 2000)
-  })
-}
-
-function Demo() {
-  const [result, requestData] = useLoading<string>(fetchData);
-
-  const handleClick = () => {
-    requestData('1')
-  }
-
-  return <div>
-    <button onClick={handleClick}>start fetch</button>
-    <div>
-      {
-        result.loading ? 'loading' : result.data
-      }
-    </div>
-  </div>
-}
-```
+[View demo][use-loading-demo]
 
 ### useRestHeight
 
-Get the remaining height of the container and add a [ResizeObserver][resize-observer] via `useRestHeight`:
+Get the remaining height of the container and add a [ResizeObserver][resize-observer] via `useRestHeight`.
 
-```tsx
-import { useRef } from 'react';
-import { useRestHeight } from 'nicehook';
-
-function Demo() {
-  const container = useRef<any>();
-  const box1 = useRef<any>();
-  const box2 = useRef<any>();
-
-  const [resetHeight] = useRestHeight({
-    container: { element: container, observer: true },
-    children: [box2, {
-      element: '.box1',
-      observer: true
-    }],
-    offsets: [1, 2, 3, 4]
-  });
-
-  return (
-    <div>
-      <div className="App" ref={container}>
-        <div className='box1' ref={box1}>
-          <textarea name="" id="" cols={30} rows={10}></textarea>
-        </div>
-        <div className='box2' ref={box2}></div>
-        {resetHeight}
-      </div>
-    </div>
-  );
-}
-```
+[View demo][use-rest-height-demo]
 
 ## useBus
 
 Sometimes it is difficult to pass events between peer Components, we can create a bus via `useBus` to complete it easily and it's returned object will persist for the full lifetime of the component.
 
-```tsx
-import { useEffect, useRef, useState } from 'react';
-import { useBus } from 'nicehook';
-import { Bus } from 'nicehook/es/lib/useBus'
+[View demo][use-bus-demo]
 
-interface Props {
-  bus: Bus;
-}
+## useToggle
 
-function Iuput(props: Props) {
-  const { bus } = props;
-  const ref = useRef<any>();
-  useEffect(() => {
-    bus.on('focus', (value: string) => {
-      ref.current?.focus();
-    });
-    bus.on('change', (value: string) => {
-      if(ref.current) {
-        ref.current.value = value;
-      }
-    });
-  }, [ref]);
-  return (
-    <div>
-      <input type="text" ref={ref} />
-    </div>
-  )
-}
+A short handle that alternates between two states. 
 
-function Button(props: Props) {
-  const { bus } = props;
-  return (
-    <div>
-      <button onClick={() => bus.emit('focus')}>emit focus</button>
-      <button onClick={() => bus.emit('change', 'success')}>emit change</button>
-    </div>
-  )
-}
+[View demo][use-toggle-demo]
 
-function Demo() {
-  const bus = useBus();
-  const [visible, setVisible] = useState<boolean>(true);
+## useBoolean
 
-  return (
-    <div>
-      {visible && (
-        <div>
-          <Iuput bus={bus} />
-          <Button bus={bus} />
-        </div>
-      )}
+Alternate `true` and `false` value based on useToggle.
 
-      <button onClick={() => bus.off('change')}>清除 change 事件</button>
-      <button onClick={() => bus.destory()}>清除所有事件</button>
-      <button onClick={() => setVisible(!visible)}>重新渲染</button>
-    </div>
-  )
-}
-```
-
+[View demo][use-boolean-demo]
 
 [npm]: https://www.npmjs.com/
 [yarn]: https://classic.yarnpkg.com
@@ -211,3 +109,9 @@ function Demo() {
 [github-star]: https://github.com/robot12580/nicehook/stargazers
 [hooks]: https://react.docschina.org/docs/hooks-custom.html
 [resize-observer]: https://developer.mozilla.org/zh-CN/docs/Web/API/ResizeObserver
+
+[use-loading-demo]: https://github.com/robot12580/nicehook/blob/master/src/useLoading/demo/demo.tsx
+[use-rest-height-demo]: https://github.com/robot12580/nicehook/blob/master/src/useRestHeight/demo/demo.tsx
+[use-bus-demo]: https://github.com/robot12580/nicehook/blob/master/src/useBus/demo/demo.tsx
+[use-toggle-demo]: https://github.com/robot12580/nicehook/blob/master/src/useToggle/demo/demo.tsx
+[use-boolean-demo]: https://github.com/robot12580/nicehook/blob/master/src/useBoolean/demo/demo.tsx
