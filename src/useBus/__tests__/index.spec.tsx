@@ -8,7 +8,7 @@ describe('测试 useBus', () => {
 
     let state: string[] = [];
     let lover = 'robot';
-    bus.on('call', (name) => state.push(`receive:${name}`));
+    bus.on('call', (name: string) => state.push(`receive:${name}`));
     bus.emit('call', lover);
 
     expect(state).toHaveLength(1);
@@ -21,8 +21,8 @@ describe('测试 useBus', () => {
 
     let state: string[] = [];
     let lover = 'robot';
-    bus.on('call', (name) => state.push(`receive:${name}`));
-    bus.on('call', (name) => state.push(`recall:${name}`));
+    bus.on('call', (name: string) => state.push(`receive:${name}`));
+    bus.on('call', (name: string) => state.push(`recall:${name}`));
     bus.emit('call', lover);
 
     expect(state[0]).toEqual(`receive:${lover}`);
@@ -35,8 +35,8 @@ describe('测试 useBus', () => {
 
     let state: string[] = [];
     let lover = 'robot';
-    bus.on('call', (name) => state.push(`receive:${name}`));
-    bus.on('meet', (name) => state.push(`see you:${name}`));
+    bus.on('call', (name: string) => state.push(`receive:${name}`));
+    bus.on('meet', (name: string) => state.push(`see you:${name}`));
     bus.off('call');
     bus.emit('call', lover);
     bus.emit('meet', lover);
@@ -51,8 +51,8 @@ describe('测试 useBus', () => {
 
     let state: string[] = [];
     let lover = 'robot';
-    bus.on('call', (name) => state.push(`receive:${name}`));
-    bus.on('meet', (name) => state.push(`see you:${name}`));
+    bus.on('call', (name: string) => state.push(`receive:${name}`));
+    bus.on('meet', (name: string) => state.push(`see you:${name}`));
     bus.destory();
     bus.emit('call', lover);
     bus.emit('meet', lover);
@@ -66,7 +66,7 @@ describe('测试 useBus', () => {
 
     let state: string[] = [];
     let lover = 'robot';
-    bus.on('call', (name) => state.push(`receive:${name}`));
+    bus.on('call', (name: string) => state.push(`receive:${name}`));
     bus.emit('call', lover);
 
     act(() => {
@@ -83,13 +83,13 @@ describe('测试 useBus', () => {
 
     let state: string[] = [];
     let lover = 'robot';
-    bus.on('call', (name) => state.push(`receive:${name}`));
+    bus.on('call', (name: string) => state.push(`receive:${name}`));
 
     //@ts-ignore
     bus.bus.set('call', null);
     bus.emit('call', lover); //事件为null, 无法触发
 
-    bus.on('call', (name) => state.push(`recall:${name}`));
+    bus.on('call', (name: string) => state.push(`recall:${name}`));
     bus.emit('call', lover); //此时只有一个新添加的事件体
 
     expect(state).toHaveLength(1);
