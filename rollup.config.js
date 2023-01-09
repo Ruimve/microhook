@@ -4,7 +4,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import terser from '@rollup/plugin-terser';
 import pkg from './package.json';
 
-module.exports = [
+export default [
   {
     input: "src/index.ts",
     output: {
