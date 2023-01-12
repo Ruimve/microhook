@@ -1,6 +1,6 @@
 import { useBoolean } from '../index';
 /**
- * 安装包之后替换成 
+ * @input 
  * import { useBoolean } from 'nicehook';
  */
 
