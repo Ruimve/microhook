@@ -34,6 +34,7 @@
   - [useBus](#usebus)
   - [useToggle](#usetoggle)
   - [useBoolean](#useboolean)
+  - [usePortal](#useportal)
 
 ## Introducing Hooks
 
@@ -89,6 +90,13 @@ Alternate `true` and `false` value based on useToggle.
 
 [View demo][use-boolean-demo]
 
+## usePortal
+
+[Portals][portals] provide a first-class way to render children into a DOM node that exists outside the DOM hierarchy of the parent component.
+`usePortal` will return a memoized version of the component that only changes if one of the dependencies has changed. This is useful when passing callbacks to optimized components that rely on reference equality to prevent unnecessary renders.
+
+[View demo][use-portal-demo]
+
 [npm]: https://www.npmjs.com/
 [yarn]: https://classic.yarnpkg.com
 [node]: https://nodejs.org
@@ -116,3 +124,5 @@ Alternate `true` and `false` value based on useToggle.
 [use-bus-demo]: https://github.com/robot12580/nicehook/blob/master/src/useBus/demo/demo.tsx
 [use-toggle-demo]: https://github.com/robot12580/nicehook/blob/master/src/useToggle/demo/demo.tsx
 [use-boolean-demo]: https://github.com/robot12580/nicehook/blob/master/src/useBoolean/demo/demo.tsx
+[use-portal-demo]: https://github.com/robot12580/nicehook/blob/master/src/usePortal/demo/demo.tsx
+[portals]: https://reactjs.org/docs/portals.html#gatsby-focus-wrapper
