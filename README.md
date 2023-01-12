@@ -93,6 +93,7 @@ Alternate `true` and `false` value based on useToggle.
 ## usePortal
 
 [Portals][portals] provide a first-class way to render children into a DOM node that exists outside the DOM hierarchy of the parent component.
+
 `usePortal` will return a memoized version of the component that only changes if one of the dependencies has changed. This is useful when passing callbacks to optimized components that rely on reference equality to prevent unnecessary renders.
 
 [View demo][use-portal-demo]
