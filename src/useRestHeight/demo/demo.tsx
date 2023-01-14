@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { useRestHeight } from '../index';
 /**
- * 安装包之后替换成 
+ * @input 
  * import { useRestHeight } from 'nicehook';
  */
 

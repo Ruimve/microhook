@@ -1,6 +1,6 @@
 import { useLoading } from '../index';
 /**
- * 安装包之后替换成 
+ * @input 
  * import { useLoading } from 'nicehook';
  */
 

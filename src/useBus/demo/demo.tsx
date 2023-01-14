@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useBus, Bus } from '../index';
 /**
- * 安装包之后替换成 
+ * @input 
  * import { useBus } from 'nicehook';
  * import { Bus } from 'nicehook/es/lib/useBus';
  */
