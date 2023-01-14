@@ -3,7 +3,7 @@ import { useBus, Bus } from '../index';
 /**
  * @input 
  * import { useBus } from 'nicehook';
- * import { Bus } from 'nicehook/es/lib/useBus';
+ * import { Bus } from 'nicehook/types/useBus';
  */
 
 interface Props {
