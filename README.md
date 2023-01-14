@@ -35,6 +35,7 @@
   - [useToggle](#usetoggle)
   - [useBoolean](#useboolean)
   - [usePortal](#useportal)
+  - [useTimeout](#usetimeout)
 
 ## Introducing Hooks
 
@@ -98,9 +99,18 @@ Alternate `true` and `false` value based on useToggle.
 
 [View demo][use-portal-demo]
 
+## useTimeout
+
+Create an `timer` that can persist for the full lifetime of the component.
+
+[View demo][use-timeout-demo]
+
+
+
 [npm]: https://www.npmjs.com/
 [yarn]: https://classic.yarnpkg.com
 [node]: https://nodejs.org
+[portals]: https://reactjs.org/docs/portals.html#gatsby-focus-wrapper
 [build-badge]:https://img.shields.io/github/workflow/status/nicehook/validate?logo=github&style=flat-square
 [build]: https://github.com/robot12580/nicehook/actions/workflows/ci.yml/badge.svg
 [coverage-badge]: https://img.shields.io/codecov/c/github/robot12580/nicehook.svg?style=flat-square
@@ -126,4 +136,4 @@ Alternate `true` and `false` value based on useToggle.
 [use-toggle-demo]: https://github.com/robot12580/nicehook/blob/master/src/useToggle/demo/demo.tsx
 [use-boolean-demo]: https://github.com/robot12580/nicehook/blob/master/src/useBoolean/demo/demo.tsx
 [use-portal-demo]: https://github.com/robot12580/nicehook/blob/master/src/usePortal/demo/demo.tsx
-[portals]: https://reactjs.org/docs/portals.html#gatsby-focus-wrapper
+[use-timeout-demo]: https://github.com/robot12580/nicehook/blob/master/src/useTimeout/demo/demo.tsx

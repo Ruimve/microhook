@@ -4,6 +4,7 @@ import { useBus } from './useBus';
 import { useToggle } from './useToggle';
 import { useBoolean } from './useBoolean';
 import { usePortal } from './usePortal';
+import { useTimeout } from './useTimeout';
 
 export {
   useLoading,
@@ -11,5 +12,6 @@ export {
   useBus,
   useToggle,
   useBoolean,
-  usePortal
+  usePortal,
+  useTimeout
 }

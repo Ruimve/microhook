@@ -29,7 +29,7 @@ export default [
       file: pkg.types,
       format: 'es'
     },
-    external: ['react', 'lodash'],
+    external: ['react', 'react-dom', 'lodash'],
     plugins: [
       typescript()
     ]
