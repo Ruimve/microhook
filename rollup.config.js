@@ -11,7 +11,7 @@ export default [
       file: pkg.main,
       format: 'es'
     },
-    external: ['react', 'lodash'],
+    external: ['react', 'react-dom', 'lodash'],
     plugins: [
       nodeResolve(),
       typescript({
