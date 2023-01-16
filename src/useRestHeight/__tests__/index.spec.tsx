@@ -48,7 +48,7 @@ describe('测试 useRestHeight', () => {
       .mockReturnValueOnce({ height: 40 })
       .mockReturnValueOnce({ height: 200 })
       .mockReturnValueOnce({ height: 20 })
-      .mockReturnValueOnce({ height: 40 });;
+      .mockReturnValueOnce({ height: 40 });
     HTMLElement.prototype.getBoundingClientRect = getBoundingClientRect;
 
     render(
@@ -75,7 +75,7 @@ describe('测试 useRestHeight', () => {
       .mockReturnValueOnce({ height: 40 })
       .mockReturnValueOnce({ height: 200 })
       .mockReturnValueOnce({ height: 20 })
-      .mockReturnValueOnce({ height: 40 });;
+      .mockReturnValueOnce({ height: 40 });
     HTMLElement.prototype.getBoundingClientRect = getBoundingClientRect;
 
     render(
