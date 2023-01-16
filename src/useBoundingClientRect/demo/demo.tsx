@@ -1,6 +1,11 @@
 import { useRef, useState } from 'react';
 import { useBoundingClientRect } from '../index';
 
+/**
+ * @input 
+ * import { useBoundingClientRect } from 'nicehook';
+ */
+
 function Demo() {
   const [visible, setVisible] = useState(true);
   const ref = useRef<HTMLDivElement>(null);
