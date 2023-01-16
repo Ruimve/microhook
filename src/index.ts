@@ -5,6 +5,7 @@ import { useToggle } from './useToggle';
 import { useBoolean } from './useBoolean';
 import { usePortal } from './usePortal';
 import { useTimeout } from './useTimeout';
+import { useBoundingClientRect } from './useBoundingClientRect';
 
 export {
   useLoading,
@@ -13,5 +14,6 @@ export {
   useToggle,
   useBoolean,
   usePortal,
-  useTimeout
+  useTimeout,
+  useBoundingClientRect
 }

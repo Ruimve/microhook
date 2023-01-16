@@ -36,6 +36,7 @@
   - [useBoolean](#useboolean)
   - [usePortal](#useportal)
   - [useTimeout](#usetimeout)
+  - [useBoundingClientRect](#useboundingclientrect)
 
 ## Introducing Hooks
 
@@ -105,7 +106,11 @@ Create an `timer` that can persist for the full lifetime of the component.
 
 [View demo][use-timeout-demo]
 
+## useBoundingClientRect
 
+Providing information about the size of an element and its position relative to the viewport and updating dom when size or position changes.
+
+[View demo][use-bounding-client-rect]
 
 [npm]: https://www.npmjs.com/
 [yarn]: https://classic.yarnpkg.com
@@ -137,3 +142,4 @@ Create an `timer` that can persist for the full lifetime of the component.
 [use-boolean-demo]: https://github.com/robot12580/nicehook/blob/master/src/useBoolean/demo/demo.tsx
 [use-portal-demo]: https://github.com/robot12580/nicehook/blob/master/src/usePortal/demo/demo.tsx
 [use-timeout-demo]: https://github.com/robot12580/nicehook/blob/master/src/useTimeout/demo/demo.tsx
+[use-bounding-client-rect]: https://github.com/robot12580/nicehook/blob/master/src/useBoundingClientRect/demo/demo.tsx
