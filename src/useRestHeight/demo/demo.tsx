@@ -1,14 +1,14 @@
 import { useRef } from 'react';
 import { useRestHeight } from '../index';
 /**
- * @input 
+ * @input  
  * import { useRestHeight } from 'nicehook';
  */
 
 function Demo() {
-  const container = useRef<any>();
-  const box1 = useRef<any>();
-  const box2 = useRef<any>();
+  const container = useRef<HTMLDivElement>(null);
+  const box1 = useRef<HTMLDivElement>(null);
+  const box2 = useRef<HTMLDivElement>(null);
 
   const [resetHeight] = useRestHeight({
     container: { element: container, observer: true },
