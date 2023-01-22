@@ -23,6 +23,14 @@
     "effect-hook",
     "hooks-api"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robot12580/nicehook.git"
+  },
+  "bugs": {
+    "url": "https://github.com/robot12580/nicehook/issues"
+  },
+  "homepage": "https://github.com/robot12580/nicehook#readme",
   "dependencies": {
     "lodash": "^4.17.21",
     "react": "^18.2.0",
