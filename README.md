@@ -9,10 +9,9 @@
     />
   </a>
 
-  <p>Simple and reusable Hooks。</p>
+  <p>Simple and reusable Hooks.</p>
 </div>
 <hr />
-<!-- prettier-ignore-start -->
 
 [![Build Status][build-badge]][build]
 [![Code Coverage][coverage-badge]][coverage]
