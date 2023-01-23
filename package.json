@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "build": "rollup -c --bundleConfigAsCjs",
-    "ci": "tsc",
+    "ci": "tsc --noEmit",
     "test": "jest",
     "prepare": "husky install"
   },
