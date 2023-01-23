@@ -65,11 +65,17 @@ A promise represents a single asynchronous operation that hasn’t been complete
 
 Get `pending` state and resulting value via `useLoading`.
 
-#### Options
+#### Params
 
 |Name|Type|Default|Description|
 |:--:|:--:|:-----:|:----------|
 |**`request`**|`{(...args:any[]) => Promise}`|`-`|A function that returns a promise.|
+
+#### Result
+|Name|Type|Default|Description|
+|:--:|:--:|:-----:|:----------|
+|**`value`**|`{Response<T>}`|`-`|Boolean value.|
+|**`action`**|`{{wrapRequset}}`|`-`|A function that returns a promise.|
 
 For more information [view demo][use-loading-demo].
 
@@ -77,7 +83,7 @@ For more information [view demo][use-loading-demo].
 
 Get the remaining height of the container and add a [ResizeObserver][resize-observer] via `useRestHeight`.
 
-#### Options
+#### Params
 
 |Name|Type|Default|Description|
 |:--:|:--:|:-----:|:----------|
@@ -85,17 +91,29 @@ Get the remaining height of the container and add a [ResizeObserver][resize-obse
 |**`children`**|`{Array<ElementConfigType>}`|`-`|Container element.|
 |**`offsets`**|`{Array<string>}`|`-`|Array of height offsets.|
 
+#### Result
+|Name|Type|Default|Description|
+|:--:|:--:|:-----:|:----------|
+|**`value`**|`{number}`|`-`|Remaining height.|
+|**`action`**|`{{updateRestHeight}}`|`-`|A function that updates remaining height.|
+
 For more information [view demo][use-rest-height-demo].
 
 ## useBus
 
 Sometimes it is difficult to pass events between peer Components, we can create a bus via `useBus` to complete it easily and it's returned object will persist for the full lifetime of the component.
 
-#### Options
+#### Params
 
 |Name|Type|Default|Description|
 |:--:|:--:|:-----:|:----------|
 |**`-`**|`{-}`|`-`|-|
+
+#### Result
+|Name|Type|Default|Description|
+|:--:|:--:|:-----:|:----------|
+|**`value`**|`{Bus}`|`-`|Bus instance.|
+|**`action`**|`-`|`-`|-|
 
 For more information [view demo][use-bus-demo].
 
@@ -103,12 +121,18 @@ For more information [view demo][use-bus-demo].
 
 A short handle that alternates between two states. 
 
-#### Options
+#### Params
 
 |Name|Type|Default|Description|
 |:--:|:--:|:-----:|:----------|
 |**`left`**|`{any}`|`-`|Left value.|
 |**`right`**|`{any}`|`-`|Right value.|
+
+#### Result
+|Name|Type|Default|Description|
+|:--:|:--:|:-----:|:----------|
+|**`value`**|`{any}`|`-`|Left and right value.|
+|**`action`**|`{setLeft,setRight,toggle}`|`-`|Function of changing value.|
 
 For more information [view demo][use-toggle-demo].
 
@@ -116,11 +140,17 @@ For more information [view demo][use-toggle-demo].
 
 Alternate `true` and `false` value based on useToggle.
 
-#### Options
+#### Params
 
 |Name|Type|Default|Description|
 |:--:|:--:|:-----:|:----------|
 |**`initialValue`**|`{boolean}`|`-`|Boolean value.|
+
+#### Result
+|Name|Type|Default|Description|
+|:--:|:--:|:-----:|:----------|
+|**`value`**|`{boolean}`|`-`|Boolean value.|
+|**`action`**|`{toggle}`|`-`|Function of changing boolean value.|
 
 For more information [view demo][use-boolean-demo].
 
@@ -130,12 +160,18 @@ For more information [view demo][use-boolean-demo].
 
 `usePortal` will return a memoized version of the component that only changes if one of the dependencies has changed. This is useful when passing callbacks to optimized components that rely on reference equality to prevent unnecessary renders.
 
-#### Options
+#### Params
 
 |Name|Type|Default|Description|
 |:--:|:--:|:-----:|:----------|
 |**`callback`**|`{() => React.ReactNode}`|`-`|A function that returns a React.ReactNode.|
 |**`container`**|`{HTMLElement}`|`-`|DOM container.|
+
+#### Result
+|Name|Type|Default|Description|
+|:--:|:--:|:-----:|:----------|
+|**`value`**|`-`|`-`|-|
+|**`action`**|`{render}`|`-`|Function of rendering dom.|
 
 For more information [view demo][use-portal-demo].
 
@@ -143,12 +179,18 @@ For more information [view demo][use-portal-demo].
 
 Create an `timer` that can persist for the full lifetime of the component.
 
-#### Options
+#### Params
 
 |Name|Type|Default|Description|
 |:--:|:--:|:-----:|:----------|
 |**`callback`**|`{() => void}`|`-`|A function that is executed when the time is up.|
 |**`delay`**|`{number}`|`0`|Delay time.|
+
+#### Result
+|Name|Type|Default|Description|
+|:--:|:--:|:-----:|:----------|
+|**`value`**|`{NodeJS.Timeout}`|`-`|Timer.|
+|**`action`**|`{on,off}`|`-`|Enable timer.|
 
 For more information [view demo][use-timeout-demo].
 
@@ -156,13 +198,19 @@ For more information [view demo][use-timeout-demo].
 
 Providing information about the size of an element and its position relative to the viewport and updating dom when size or position changes.
 
-#### Options
+#### Params
 
 |Name|Type|Default|Description|
 |:--:|:--:|:-----:|:----------|
 |**`element`**|`{RectElement}`|`-`|Element.|
 |**`options`**|`{{observer: boolean}}`|`0`|Whether to enable monitoring.|
 |**`deps`**|`{Array<any>}`|`0`|Rerender dependency list.|
+
+#### Result
+|Name|Type|Default|Description|
+|:--:|:--:|:-----:|:----------|
+|**`value`**|`{Rect}`|`-`|Size and Position information.|
+|**`action`**|`{updateRect}`|`-`|Function of updating size and position information.|
 
 For more information [view demo][use-bounding-client-rect].
 
@@ -189,11 +237,11 @@ For more information [view demo][use-bounding-client-rect].
 [hooks]: https://react.docschina.org/docs/hooks-custom.html
 [resize-observer]: https://developer.mozilla.org/zh-CN/docs/Web/API/ResizeObserver
 
-[use-loading-demo]: https://github.com/robot12580/nicehook/blob/master/src/useLoading/demo/demo.tsx
-[use-rest-height-demo]: https://github.com/robot12580/nicehook/blob/master/src/useRestHeight/demo/demo.tsx
-[use-bus-demo]: https://github.com/robot12580/nicehook/blob/master/src/useBus/demo/demo.tsx
-[use-toggle-demo]: https://github.com/robot12580/nicehook/blob/master/src/useToggle/demo/demo.tsx
-[use-boolean-demo]: https://github.com/robot12580/nicehook/blob/master/src/useBoolean/demo/demo.tsx
-[use-portal-demo]: https://github.com/robot12580/nicehook/blob/master/src/usePortal/demo/demo.tsx
-[use-timeout-demo]: https://github.com/robot12580/nicehook/blob/master/src/useTimeout/demo/demo.tsx
-[use-bounding-client-rect]: https://github.com/robot12580/nicehook/blob/master/src/useBoundingClientRect/demo/demo.tsx
+[use-loading-demo]: https://github.com/robot12580/nicehook/blob/master/src/useLoading/demo/index.tsx
+[use-rest-height-demo]: https://github.com/robot12580/nicehook/blob/master/src/useRestHeight/demo/index.tsx
+[use-bus-demo]: https://github.com/robot12580/nicehook/blob/master/src/useBus/demo/index.tsx
+[use-toggle-demo]: https://github.com/robot12580/nicehook/blob/master/src/useToggle/demo/index.tsx
+[use-boolean-demo]: https://github.com/robot12580/nicehook/blob/master/src/useBoolean/demo/index.tsx
+[use-portal-demo]: https://github.com/robot12580/nicehook/blob/master/src/usePortal/demo/index.tsx
+[use-timeout-demo]: https://github.com/robot12580/nicehook/blob/master/src/useTimeout/demo/index.tsx
+[use-bounding-client-rect]: https://github.com/robot12580/nicehook/blob/master/src/useBoundingClientRect/demo/index.tsx

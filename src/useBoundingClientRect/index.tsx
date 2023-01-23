@@ -22,7 +22,7 @@ interface Options {
 }
 
 interface Action {
-  updateHeight: () => void;
+  updateRect: () => void;
 }
 
 function useBoundingClientRect(
@@ -34,28 +34,28 @@ function useBoundingClientRect(
 
   const findDOM = (ele: RectElement) => ele instanceof Element ? ele : ele?.current;
 
-  const calcHeight = useCallback(() => {
+  const calcRect = useCallback(() => {
     const dom = findDOM(element);
     const { top = 0, right = 0, bottom = 0, left = 0, height = 0, width = 0, x = 0, y = 0 } = dom?.getBoundingClientRect() || {};
     setRect({ top, right, bottom, left, height, width, x, y });
   }, [element])
 
   useEffect(() => {
-    const observer = new ResizeObserver(calcHeight);
+    const observer = new ResizeObserver(calcRect);
     if (options?.observer) {
       const dom = findDOM(element);
       dom && observer.observe(dom);
     } else {
-      calcHeight();
+      calcRect();
     }
 
     return () => {
       observer.disconnect();
     }
     // eslint-disable-next-line
-  }, [element, JSON.stringify(options), calcHeight, ...deps]);
+  }, [element, JSON.stringify(options), calcRect, ...deps]);
 
-  return [rect, { updateHeight: calcHeight }];
+  return [rect, { updateRect: calcRect }];
 }
 
 export {
