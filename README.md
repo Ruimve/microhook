@@ -132,7 +132,7 @@ A short handle that alternates between two states.
 |Name|Type|Default|Description|
 |:--:|:--:|:-----:|:----------|
 |**`value`**|`{any}`|`-`|Left and right value.|
-|**`action`**|`{setLeft,setRight,toggle}`|`-`|Function of changing value.|
+|**`action`**|`{{setLeft,setRight,toggle}}`|`-`|Function of changing value.|
 
 For more information [view demo][use-toggle-demo].
 
@@ -150,7 +150,7 @@ Alternate `true` and `false` value based on useToggle.
 |Name|Type|Default|Description|
 |:--:|:--:|:-----:|:----------|
 |**`value`**|`{boolean}`|`-`|Boolean value.|
-|**`action`**|`{toggle}`|`-`|Function of changing boolean value.|
+|**`action`**|`{{toggle}}`|`-`|Function of changing boolean value.|
 
 For more information [view demo][use-boolean-demo].
 
@@ -171,7 +171,7 @@ For more information [view demo][use-boolean-demo].
 |Name|Type|Default|Description|
 |:--:|:--:|:-----:|:----------|
 |**`value`**|`-`|`-`|-|
-|**`action`**|`{render}`|`-`|Function of rendering dom.|
+|**`action`**|`{{render}}`|`-`|Function of rendering dom.|
 
 For more information [view demo][use-portal-demo].
 
@@ -190,7 +190,7 @@ Create an `timer` that can persist for the full lifetime of the component.
 |Name|Type|Default|Description|
 |:--:|:--:|:-----:|:----------|
 |**`value`**|`{NodeJS.Timeout}`|`-`|Timer.|
-|**`action`**|`{on,off}`|`-`|Enable timer.|
+|**`action`**|`{{on,off}}`|`-`|Enable timer.|
 
 For more information [view demo][use-timeout-demo].
 
@@ -210,7 +210,7 @@ Providing information about the size of an element and its position relative to 
 |Name|Type|Default|Description|
 |:--:|:--:|:-----:|:----------|
 |**`value`**|`{Rect}`|`-`|Size and Position information.|
-|**`action`**|`{updateRect}`|`-`|Function of updating size and position information.|
+|**`action`**|`{{updateRect}}`|`-`|Function of updating size and position information.|
 
 For more information [view demo][use-bounding-client-rect].
 
