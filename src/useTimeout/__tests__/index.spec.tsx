@@ -11,7 +11,7 @@ describe('测试 useTimeout', () => {
       }
     });
 
-    const [on] = result.current;
+    const [, { on }] = result.current;
     jest.useFakeTimers();
     on();
     jest.runAllTimers();
@@ -27,7 +27,7 @@ describe('测试 useTimeout', () => {
       }
     });
 
-    const [on, off] = result.current;
+    const [, { on, off }] = result.current;
     jest.useFakeTimers();
     on();
     off();
@@ -43,7 +43,7 @@ describe('测试 useTimeout', () => {
       }
     });
 
-    const [on] = result.current;
+    const [, { on }] = result.current;
     jest.useFakeTimers();
     on();
     jest.runAllTimers();

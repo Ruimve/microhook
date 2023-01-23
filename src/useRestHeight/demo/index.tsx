@@ -10,14 +10,14 @@ function Demo() {
   const box1 = useRef<HTMLDivElement>(null);
   const box2 = useRef<HTMLDivElement>(null);
 
-  const [resetHeight] = useRestHeight({
-    container: { element: container, observer: true },
-    children: [box2, {
+  const [resetHeight] = useRestHeight(
+    { element: container, observer: true },
+    [box2, {
       element: '.box1',
       observer: true
     }],
-    offsets: [1, 2, 3, 4]
-  });
+    [1, 2, 3, 4]
+  );
 
   return (
     <div>

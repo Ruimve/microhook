@@ -41,7 +41,7 @@ function Button(props: Props) {
 }
 
 function Demo() {
-  const bus = useBus();
+  const [bus] = useBus();
   const [visible, setVisible] = useState<boolean>(true);
 
   return (

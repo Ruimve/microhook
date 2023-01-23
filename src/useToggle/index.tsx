@@ -1,13 +1,14 @@
 import { useState, useCallback } from 'react';
 import * as _ from 'lodash';
+import { ReturnValue } from '../define';
 
-interface Utils {
-  setLeft(): void;
-  setRight(): void;
-  toggle(): void;
+interface Action {
+  setLeft: () => void;
+  setRight: () => void;
+  toggle: () => void;
 }
 
-function useToggle<T, P>(left: T, right: P): [T | P, Utils] {
+function useToggle<T, P>(left: T, right: P): ReturnValue<T | P, Action> {
   const [value, setValue] = useState<T | P>(left);
 
   const setLeft = useCallback(() => {

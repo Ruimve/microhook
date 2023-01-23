@@ -8,7 +8,7 @@ import { useTimeout } from '../index';
 function Demo() {
   const [visible, setVisible] = useState(false);
 
-  const [on, off] = useTimeout(() => {
+  const [, { on, off }] = useTimeout(() => {
     console.log('定时器执行');
   }, 2000);
 

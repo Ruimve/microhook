@@ -3,8 +3,14 @@
  * @description 返回一个在整个生命周期持续存在的定时器
  */
 import { useRef, useCallback } from 'react';
+import { ReturnValue } from '../define';
 
-function useTimeout(callback: () => void, delay: number = 0): [() => void, () => void] {
+interface Action {
+  on: () => void;
+  off: () => void;
+}
+
+function useTimeout(callback: () => void, delay: number = 0): ReturnValue<NodeJS.Timeout | null, Action> {
   const ref = useRef<NodeJS.Timeout | null>(null);
 
   const on = useCallback(() => {
@@ -16,7 +22,7 @@ function useTimeout(callback: () => void, delay: number = 0): [() => void, () =>
     ref.current = null;
   }, [ref]);
 
-  return [on, off];
+  return [ref.current, { on, off }];
 }
 
 export {

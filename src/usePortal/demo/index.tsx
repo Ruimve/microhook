@@ -20,7 +20,7 @@ function Demo() {
 
   /** 为了避免重复渲染, 请使用 useCallback 和 React.memo */
   const createExample = useCallback(() => <MemoNode visible={visible} />, [visible]);
-  const render = usePortal(
+  const [, { render }] = usePortal(
     createExample,
     document.body
   );

@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { ReturnValue } from '../define';
 
-interface Options {
-  // 是否监听元素变化
-  observer?: boolean;
-}
+const initialRect = { top: 0, right: 0, bottom: 0, left: 0, height: 0, width: 0, x: 0, y: 0 };
+
+type RectElement = React.MutableRefObject<Element | null> | Element | null;
 
 interface Rect {
   top: number;
@@ -16,37 +16,46 @@ interface Rect {
   y: number;
 }
 
-type RectElement = React.MutableRefObject<Element | null> | Element | null;
+interface Options {
+  /* 是否监听元素变化 */
+  observer?: boolean;
+}
 
-const initialRect = { top: 0, right: 0, bottom: 0, left: 0, height: 0, width: 0, x: 0, y: 0 };
+interface Action {
+  updateRect: () => void;
+}
 
-function useBoundingClientRect(element: RectElement, options: Options = { observer: true }, deps: React.DependencyList = []) {
+function useBoundingClientRect(
+  element: RectElement,
+  options: Options = { observer: true },
+  deps: React.DependencyList = []
+): ReturnValue<Rect, Action> {
   const [rect, setRect] = useState<Rect>(initialRect);
 
   const findDOM = (ele: RectElement) => ele instanceof Element ? ele : ele?.current;
 
-  const calcHeight = useCallback(() => {
+  const calcRect = useCallback(() => {
     const dom = findDOM(element);
     const { top = 0, right = 0, bottom = 0, left = 0, height = 0, width = 0, x = 0, y = 0 } = dom?.getBoundingClientRect() || {};
     setRect({ top, right, bottom, left, height, width, x, y });
   }, [element])
 
   useEffect(() => {
-    const observer = new ResizeObserver(calcHeight);
+    const observer = new ResizeObserver(calcRect);
     if (options?.observer) {
       const dom = findDOM(element);
       dom && observer.observe(dom);
     } else {
-      calcHeight();
+      calcRect();
     }
 
     return () => {
       observer.disconnect();
     }
     // eslint-disable-next-line
-  }, [element, JSON.stringify(options), calcHeight, ...deps]);
+  }, [element, JSON.stringify(options), calcRect, ...deps]);
 
-  return rect;
+  return [rect, { updateRect: calcRect }];
 }
 
 export {

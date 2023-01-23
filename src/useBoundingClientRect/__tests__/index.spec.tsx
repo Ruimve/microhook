@@ -33,14 +33,16 @@ describe('测试 useBoundingClientRect', () => {
 
     expect(getBoundingClientRect.mock.calls.length).toEqual(1);
 
-    expect(result.current?.top).toEqual(10);
-    expect(result.current?.right).toEqual(20);
-    expect(result.current?.bottom).toEqual(30);
-    expect(result.current?.left).toEqual(40);
-    expect(result.current?.height).toEqual(50);
-    expect(result.current?.width).toEqual(60);
-    expect(result.current?.x).toEqual(70);
-    expect(result.current?.y).toEqual(80);
+    const [rect] = result.current;
+
+    expect(rect?.top).toEqual(10);
+    expect(rect?.right).toEqual(20);
+    expect(rect?.bottom).toEqual(30);
+    expect(rect?.left).toEqual(40);
+    expect(rect?.height).toEqual(50);
+    expect(rect?.width).toEqual(60);
+    expect(rect?.x).toEqual(70);
+    expect(rect?.y).toEqual(80);
   });
 
   it('测试 options 和 deps 默认值', () => {

@@ -17,11 +17,13 @@ describe('测试 useRestHeight', () => {
   });
 
   it('当容器 container 不存在时, 高度为 0', () => {
-    const { result } = renderHook(props => useRestHeight(props), {
+    const { result } = renderHook(
+      props => useRestHeight(props.container), {
       initialProps: {
         container: null
       }
-    });
+    }
+    );
     const [restHeight] = result.current;
     expect(restHeight).toEqual(0);
   });
@@ -31,11 +33,14 @@ describe('测试 useRestHeight', () => {
     HTMLElement.prototype.getBoundingClientRect = getBoundingClientRect;
 
     render(<div className="container" style={{ height: 200 }}></div>);
-    const { result } = renderHook(props => useRestHeight(props), {
-      initialProps: {
-        container: '.container'
+    const { result } = renderHook(
+      props => useRestHeight(props.container),
+      {
+        initialProps: {
+          container: '.container'
+        }
       }
-    });
+    );
 
     expect(result.current[0]).toEqual(200);
   });
@@ -57,12 +62,15 @@ describe('测试 useRestHeight', () => {
         <div className="second" style={{ height: 40 }} ></div>
       </div>
     );
-    const { result } = renderHook(props => useRestHeight(props), {
-      initialProps: {
-        container: '.container',
-        children: ['.first', '.second']
+    const { result } = renderHook(
+      props => useRestHeight(props.container, props.children),
+      {
+        initialProps: {
+          container: '.container',
+          children: ['.first', '.second']
+        }
       }
-    });
+    );
 
     expect(result.current[0]).toEqual(140);
   });
@@ -84,16 +92,19 @@ describe('测试 useRestHeight', () => {
         <div className="second" style={{ height: 40 }} ></div>
       </div>
     );
-    const { result } = renderHook(props => useRestHeight(props), {
-      initialProps: {
-        container: '.container',
-        children: [
-          { element: '.first', observer: true },
-          { element: '.second', observer: false }
-        ],
-        offsets: [5, 10]
+    const { result } = renderHook(
+      props => useRestHeight(props.container, props.children, props.offsets),
+      {
+        initialProps: {
+          container: '.container',
+          children: [
+            { element: '.first', observer: true },
+            { element: '.second', observer: false }
+          ],
+          offsets: [5, 10]
+        }
       }
-    });
+    );
 
     expect(result.current[0]).toEqual(125);
   });
@@ -104,11 +115,14 @@ describe('测试 useRestHeight', () => {
 
     render(<div className="container" style={{ height: 200 }}>useRef</div>);
     const ref = { current: screen.getAllByText('useRef')[0] };
-    const { result } = renderHook(props => useRestHeight(props), {
-      initialProps: {
-        container: ref
+    const { result } = renderHook(
+      props => useRestHeight(props.container),
+      {
+        initialProps: {
+          container: ref
+        }
       }
-    });
+    );
 
     expect(result.current[0]).toEqual(200);
   })

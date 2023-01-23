@@ -6,7 +6,8 @@ import { useBoolean } from '../index';
 
 
 function Demo() {
-  const [value, toggle] = useBoolean(false);
+  const [value, actions] = useBoolean(false);
+  const { toggle } = actions;
 
   return (
     <div>

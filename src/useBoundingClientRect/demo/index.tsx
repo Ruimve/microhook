@@ -11,10 +11,10 @@ function Demo() {
   const ref = useRef<HTMLDivElement>(null);
 
   // 通过 ref 获取元素, 可以将 visible 添加为依赖项
-  const rect1 = useBoundingClientRect(ref, { observer: true }, [visible]);
+  const [rect1] = useBoundingClientRect(ref, { observer: true }, [visible]);
 
   // 通过 getElementsByClassName 获取元素, 如果不添加依赖项，dom 删除有可能导致监听失败
-  const rect2 = useBoundingClientRect(document.getElementsByClassName('textarea2')?.[0], { observer: true });
+  const [rect2] = useBoundingClientRect(document.getElementsByClassName('textarea2')?.[0], { observer: true });
 
   return (
     <div>
