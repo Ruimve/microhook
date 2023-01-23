@@ -1,6 +1,6 @@
 {
   "name": "nicehook",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Simple and reusable Hooks",
   "main": "es/index.js",
   "types": "types/index.d.ts",
