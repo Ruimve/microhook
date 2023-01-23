@@ -1,4 +1,7 @@
 import { useRef } from 'react';
+import { ReturnValue } from '../define';
+
+interface Action {}
 
 abstract class AbstractBus {
   constructor(protected bus: Map<string, Function[]>) { }
@@ -38,12 +41,12 @@ class Bus extends AbstractBus {
   }
 }
 
-function useBus() {
+function useBus(): ReturnValue<Bus, Action> {
   const ref = useRef<Bus>();
   if (!ref.current) {
     ref.current = new Bus(new Map());
   }
-  return ref.current;
+  return [ref.current, {}];
 }
 
 export {

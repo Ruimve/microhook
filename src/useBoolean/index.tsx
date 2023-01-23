@@ -1,18 +1,23 @@
 import { useCallback } from "react";
 import { useToggle } from '../useToggle';
+import { ReturnValue } from '../define';
 
-function useBoolean(initialValue: boolean = false): [boolean, (value?: boolean) => void] {
-  const [boolean, { toggle, setLeft, setRight }] = useToggle(initialValue, !initialValue);
-  const toggleBool = useCallback((value?: boolean) => {
+interface Action {
+  toggle: (value?: boolean) => void;
+}
+
+function useBoolean(initialValue: boolean = false): ReturnValue<boolean, Action> {
+  const [boolean, { toggle: defaultToggle, setLeft, setRight }] = useToggle(initialValue, !initialValue);
+  const toggle = useCallback((value?: boolean) => {
     if (boolean === value) return;
     if (typeof value === 'boolean') {
       value === initialValue ? setLeft() : setRight();
     } else {
-      toggle();
+      defaultToggle();
     }
   }, [boolean, initialValue]);
 
-  return [boolean, toggleBool];
+  return [boolean, { toggle }];
 }
 
 export {

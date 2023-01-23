@@ -4,10 +4,15 @@
  */
 
 import { useState, useCallback } from "react";
+import { ReturnValue } from '../define';
 
 interface Response<T> {
   loading: boolean;
   data: T | null;
+}
+
+interface Action {
+  wrapRequset: (...args: any[]) => Promise<void>;
 }
 
 function createResponse<T>(loading: boolean, data: T | null = null): Response<T> {
@@ -17,7 +22,7 @@ function createResponse<T>(loading: boolean, data: T | null = null): Response<T>
   }
 }
 
-function useLoading<T>(request: (...args: any[]) => Promise<T>): [Response<T>, (...args: any[]) => Promise<void>] {
+function useLoading<T>(request: (...args: any[]) => Promise<T>): ReturnValue<Response<T>, Action> {
   const [response, setResponse] = useState<Response<T>>({ loading: false, data: null });
 
   const wrapRequset = useCallback(
@@ -33,8 +38,8 @@ function useLoading<T>(request: (...args: any[]) => Promise<T>): [Response<T>, (
     },
     [request]
   )
-  
-  return [response, wrapRequset]
+
+  return [response, { wrapRequset }]
 }
 
 export {

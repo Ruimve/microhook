@@ -65,31 +65,64 @@ A promise represents a single asynchronous operation that hasn’t been complete
 
 Get `pending` state and resulting value via `useLoading`.
 
-[View demo][use-loading-demo]
+#### Options
+
+|Name|Type|Default|Description|
+|:--:|:--:|:-----:|:----------|
+|**`request`**|`{(...args:any[]) => Promise}`|`-`|A function that returns a promise.|
+
+For more information [view demo][use-loading-demo].
 
 ### useRestHeight
 
 Get the remaining height of the container and add a [ResizeObserver][resize-observer] via `useRestHeight`.
 
-[View demo][use-rest-height-demo]
+#### Options
+
+|Name|Type|Default|Description|
+|:--:|:--:|:-----:|:----------|
+|**`container`**|`{ElementConfigType}`|`-`|DOM container.|
+|**`children`**|`{Array<ElementConfigType>}`|`-`|Container element.|
+|**`offsets`**|`{Array<string>}`|`-`|Array of height offsets.|
+
+For more information [view demo][use-rest-height-demo].
 
 ## useBus
 
 Sometimes it is difficult to pass events between peer Components, we can create a bus via `useBus` to complete it easily and it's returned object will persist for the full lifetime of the component.
 
-[View demo][use-bus-demo]
+#### Options
+
+|Name|Type|Default|Description|
+|:--:|:--:|:-----:|:----------|
+|**`-`**|`{-}`|`-`|-|
+
+For more information [view demo][use-bus-demo].
 
 ## useToggle
 
 A short handle that alternates between two states. 
 
-[View demo][use-toggle-demo]
+#### Options
+
+|Name|Type|Default|Description|
+|:--:|:--:|:-----:|:----------|
+|**`left`**|`{any}`|`-`|Left value.|
+|**`right`**|`{any}`|`-`|Right value.|
+
+For more information [view demo][use-toggle-demo].
 
 ## useBoolean
 
 Alternate `true` and `false` value based on useToggle.
 
-[View demo][use-boolean-demo]
+#### Options
+
+|Name|Type|Default|Description|
+|:--:|:--:|:-----:|:----------|
+|**`initialValue`**|`{boolean}`|`-`|Boolean value.|
+
+For more information [view demo][use-boolean-demo].
 
 ## usePortal
 
@@ -97,19 +130,41 @@ Alternate `true` and `false` value based on useToggle.
 
 `usePortal` will return a memoized version of the component that only changes if one of the dependencies has changed. This is useful when passing callbacks to optimized components that rely on reference equality to prevent unnecessary renders.
 
-[View demo][use-portal-demo]
+#### Options
+
+|Name|Type|Default|Description|
+|:--:|:--:|:-----:|:----------|
+|**`callback`**|`{() => React.ReactNode}`|`-`|A function that returns a React.ReactNode.|
+|**`container`**|`{HTMLElement}`|`-`|DOM container.|
+
+For more information [view demo][use-portal-demo].
 
 ## useTimeout
 
 Create an `timer` that can persist for the full lifetime of the component.
 
-[View demo][use-timeout-demo]
+#### Options
+
+|Name|Type|Default|Description|
+|:--:|:--:|:-----:|:----------|
+|**`callback`**|`{() => void}`|`-`|A function that is executed when the time is up.|
+|**`delay`**|`{number}`|`0`|Delay time.|
+
+For more information [view demo][use-timeout-demo].
 
 ## useBoundingClientRect
 
 Providing information about the size of an element and its position relative to the viewport and updating dom when size or position changes.
 
-[View demo][use-bounding-client-rect]
+#### Options
+
+|Name|Type|Default|Description|
+|:--:|:--:|:-----:|:----------|
+|**`element`**|`{RectElement}`|`-`|Element.|
+|**`options`**|`{{observer: boolean}}`|`0`|Whether to enable monitoring.|
+|**`deps`**|`{Array<any>}`|`0`|Rerender dependency list.|
+
+For more information [view demo][use-bounding-client-rect].
 
 [npm]: https://www.npmjs.com/
 [yarn]: https://classic.yarnpkg.com

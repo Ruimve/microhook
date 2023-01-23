@@ -22,7 +22,7 @@ describe('测试 useLoading', () => {
     const { result } = renderHook(() => useLoading<string>(callback));
     expect(result.current[0].loading).toEqual(false);
     act(() => {
-      result.current[1]();
+      result.current[1].wrapRequset();
     });
     expect(result.current[0].loading).toEqual(true);
   });
@@ -39,7 +39,7 @@ describe('测试 useLoading', () => {
     });
     const { result } = renderHook(() => useLoading<string>(callback));
     await act(async () => {
-      await result.current[1]();
+      await result.current[1].wrapRequset();
     });
     expect(result.current[0].data).toEqual(people);
   });
@@ -56,7 +56,7 @@ describe('测试 useLoading', () => {
     });
     const { result } = renderHook(() => useLoading<string>(callback));
     await act(async () => {
-      await result.current[1]();
+      await result.current[1].wrapRequset();
     });
 
     expect(result.current[0].data).toEqual(error);

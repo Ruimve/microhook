@@ -16,7 +16,7 @@ describe('测试 usePortal', () => {
     });
 
     act(() => {
-      render(result.current());
+      render(result.current[1].render());
     });
 
     const com = screen.getByText('global component');

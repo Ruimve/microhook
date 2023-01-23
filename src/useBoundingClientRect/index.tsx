@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { ReturnValue } from '../define';
 
-interface Options {
-  // 是否监听元素变化
-  observer?: boolean;
-}
+const initialRect = { top: 0, right: 0, bottom: 0, left: 0, height: 0, width: 0, x: 0, y: 0 };
+
+type RectElement = React.MutableRefObject<Element | null> | Element | null;
 
 interface Rect {
   top: number;
@@ -16,11 +16,20 @@ interface Rect {
   y: number;
 }
 
-type RectElement = React.MutableRefObject<Element | null> | Element | null;
+interface Options {
+  /* 是否监听元素变化 */
+  observer?: boolean;
+}
 
-const initialRect = { top: 0, right: 0, bottom: 0, left: 0, height: 0, width: 0, x: 0, y: 0 };
+interface Action {
+  updateHeight: () => void;
+}
 
-function useBoundingClientRect(element: RectElement, options: Options = { observer: true }, deps: React.DependencyList = []) {
+function useBoundingClientRect(
+  element: RectElement,
+  options: Options = { observer: true },
+  deps: React.DependencyList = []
+): ReturnValue<Rect, Action> {
   const [rect, setRect] = useState<Rect>(initialRect);
 
   const findDOM = (ele: RectElement) => ele instanceof Element ? ele : ele?.current;
@@ -46,7 +55,7 @@ function useBoundingClientRect(element: RectElement, options: Options = { observ
     // eslint-disable-next-line
   }, [element, JSON.stringify(options), calcHeight, ...deps]);
 
-  return rect;
+  return [rect, { updateHeight: calcHeight }];
 }
 
 export {

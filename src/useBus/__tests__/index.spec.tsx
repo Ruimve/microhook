@@ -4,7 +4,7 @@ import { useBus } from '../index';
 describe('测试 useBus', () => {
   it('添加 call 事件, 调用 emit 触发 call 事件, 得到状态 receive', () => {
     const { result } = renderHook(() => useBus());
-    const bus = result.current;
+    const [bus] = result.current;
 
     let state: string[] = [];
     let lover = 'robot';
@@ -17,7 +17,7 @@ describe('测试 useBus', () => {
 
   it('给 call 事件绑定两个动作 receive 和 recall, 调用 emit 触发 call 事件, 得到两个状态 receive 和 recall', () => {
     const { result } = renderHook(() => useBus());
-    const bus = result.current;
+    const [bus] = result.current;
 
     let state: string[] = [];
     let lover = 'robot';
@@ -31,7 +31,7 @@ describe('测试 useBus', () => {
 
   it('绑定一个 call 事件和一个 meet 事件, 调用 off 卸载 call 事件, 只得到 see you 状态', () => {
     const { result } = renderHook(() => useBus());
-    const bus = result.current;
+    const [bus] = result.current;
 
     let state: string[] = [];
     let lover = 'robot';
@@ -47,7 +47,7 @@ describe('测试 useBus', () => {
 
   it('绑定一个 call 事件和一个 meet 事件, 调用 destory 销毁所有事件, 得到状态为空', () => {
     const { result } = renderHook(() => useBus());
-    const bus = result.current;
+    const [bus] = result.current;
 
     let state: string[] = [];
     let lover = 'robot';
@@ -62,7 +62,7 @@ describe('测试 useBus', () => {
 
   it('重新渲染 Hook, 得到同一个 bus  对象', () => {
     const { result, rerender } = renderHook(() => useBus());
-    const bus = result.current;
+    const [bus] = result.current;
 
     let state: string[] = [];
     let lover = 'robot';
@@ -73,13 +73,13 @@ describe('测试 useBus', () => {
       rerender();
     });
 
-    const rerenderBus = result.current;
+    const [rerenderBus] = result.current;
     expect(rerenderBus).toEqual(bus);
   });
 
   it('强制将 bus Map 中的事件体置为 null, 导致事件异常', () => {
     const { result } = renderHook(() => useBus());
-    const bus = result.current;
+    const [bus] = result.current;
 
     let state: string[] = [];
     let lover = 'robot';

@@ -34,10 +34,10 @@ describe('测试 useBoolean', () => {
     });
     expect(result.current[0]).toEqual(true);
 
-    act(() => result.current[1]());
+    act(() => result.current[1].toggle());
     expect(result.current[0]).toEqual(false);
 
-    act(() => result.current[1]());
+    act(() => result.current[1].toggle());
     expect(result.current[0]).toEqual(true);
   });
 
@@ -50,19 +50,19 @@ describe('测试 useBoolean', () => {
     expect(result.current[0]).toEqual(true);
 
     // 指定布尔值为 true
-    act(() => result.current[1](true));
+    act(() => result.current[1].toggle(true));
     expect(result.current[0]).toEqual(true);
 
     // 指定布尔值为 false
-    act(() => result.current[1](false));
+    act(() => result.current[1].toggle(false));
     expect(result.current[0]).toEqual(false);
 
     // 指定布尔值为 false
-    act(() => result.current[1](false));
+    act(() => result.current[1].toggle(false));
     expect(result.current[0]).toEqual(false);
 
     // 指定布尔值为 true
-    act(() => result.current[1](true));
+    act(() => result.current[1].toggle(true));
     expect(result.current[0]).toEqual(true);
   });
 });
