@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.2](https://github.com/robot12580/microhook/compare/v1.2.1...v1.2.2) (2023-01-27)
+
+
+### Miscellaneous Chores
+
+* release 1.2.2 ([8115d45](https://github.com/robot12580/microhook/commit/8115d451440a95578b99bda1dc08315d7e4dbaf1))
+
 ## [1.2.1](https://github.com/robot12580/microhook/compare/v1.2.0...v1.2.1) (2023-01-23)
 
 
