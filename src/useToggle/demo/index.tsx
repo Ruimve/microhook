@@ -1,7 +1,7 @@
 import { useToggle } from '../index';
 /**
  * @input 
- * import { useToggle } from 'nicehook';
+ * import { useToggle } from 'microhook';
  */
 
 

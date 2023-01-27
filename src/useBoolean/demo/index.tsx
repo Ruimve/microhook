@@ -1,7 +1,7 @@
 import { useBoolean } from '../index';
 /**
  * @input 
- * import { useBoolean } from 'nicehook';
+ * import { useBoolean } from 'microhook';
  */
 
 

@@ -1,5 +1,5 @@
 {
-  "name": "nicehook",
+  "name": "microhook",
   "version": "1.2.1",
   "description": "Simple and reusable Hooks",
   "main": "es/index.js",
@@ -25,12 +25,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/robot12580/nicehook.git"
+    "url": "git+https://github.com/robot12580/microhook.git"
   },
   "bugs": {
-    "url": "https://github.com/robot12580/nicehook/issues"
+    "url": "https://github.com/robot12580/microhook/issues"
   },
-  "homepage": "https://github.com/robot12580/nicehook#readme",
+  "homepage": "https://github.com/robot12580/microhook#readme",
   "dependencies": {
     "lodash": "^4.17.21",
     "react": "^18.2.0",

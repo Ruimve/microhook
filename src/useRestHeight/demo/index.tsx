@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { useRestHeight } from '../index';
 /**
  * @input  
- * import { useRestHeight } from 'nicehook';
+ * import { useRestHeight } from 'microhook';
  */
 
 function Demo() {

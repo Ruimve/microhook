@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react';
 import { usePortal } from '../index';
 /** 
  * @input
- * import { usePortal } from 'nicehook';
+ * import { usePortal } from 'microhook';
  */
 
 function Node(props: { visible: boolean }) {

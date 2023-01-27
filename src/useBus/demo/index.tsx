@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import { useBus, Bus } from '../index';
 /**
  * @input 
- * import { useBus } from 'nicehook';
- * import { Bus } from 'nicehook/types/useBus';
+ * import { useBus } from 'microhook';
+ * import { Bus } from 'microhook/types/useBus';
  */
 
 interface Props {

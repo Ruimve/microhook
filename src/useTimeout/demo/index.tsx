@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useTimeout } from '../index';
 /** 
  * @input
- * import { useTimeout } from 'nicehook';
+ * import { useTimeout } from 'microhook';
  */
 
 function Demo() {

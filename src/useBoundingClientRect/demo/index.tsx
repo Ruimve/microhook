@@ -3,7 +3,7 @@ import { useBoundingClientRect } from '../index';
 
 /**
  * @input 
- * import { useBoundingClientRect } from 'nicehook';
+ * import { useBoundingClientRect } from 'microhook';
  */
 
 function Demo() {

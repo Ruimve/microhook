@@ -1,7 +1,7 @@
 import { useLoading } from '../index';
 /**
  * @input 
- * import { useLoading } from 'nicehook';
+ * import { useLoading } from 'microhook';
  */
 
 function fetchData(keyword: string) {
