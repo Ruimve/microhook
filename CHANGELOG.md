@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.3](https://github.com/robot12580/microhook/compare/v1.2.2...v1.2.3) (2023-01-27)
+
+
+### Bug Fixes
+
+* change package name ([4aeb6be](https://github.com/robot12580/microhook/commit/4aeb6be3689415d6b5660a129bd4c5e37f555022))
+
 ## [1.2.2](https://github.com/robot12580/microhook/compare/v1.2.1...v1.2.2) (2023-01-27)
 
 

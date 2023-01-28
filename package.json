@@ -1,6 +1,6 @@
 {
   "name": "microhook",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Simple and reusable Hooks",
   "main": "es/index.js",
   "types": "types/index.d.ts",
