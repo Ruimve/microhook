@@ -1,7 +1,7 @@
 {
   "name": "microhook",
   "version": "1.2.3",
-  "description": "Simple and reusable Hooks",
+  "description": "Micro and reusable Hooks",
   "main": "es/index.js",
   "types": "types/index.d.ts",
   "author": "jingyu",

@@ -15,7 +15,7 @@ describe('测试 useTimeout', () => {
     jest.useFakeTimers();
     on();
     jest.runAllTimers();
-    expect(fn.mock.calls.length).toEqual(1);
+    expect(fn).toHaveBeenCalledTimes(1);
   });
 
   it('创建一个回调函数 fn, 用 on 方法开启定时器, 然后立即调用 off, 定时器不会执行, fn 被调用的次数为 0', () => {
@@ -32,7 +32,7 @@ describe('测试 useTimeout', () => {
     on();
     off();
     jest.runAllTimers();
-    expect(fn.mock.calls.length).toEqual(0);
+    expect(fn).toHaveBeenCalledTimes(0);
   });
 
   it('delay 默认值为 0', () => {
@@ -47,6 +47,6 @@ describe('测试 useTimeout', () => {
     jest.useFakeTimers();
     on();
     jest.runAllTimers();
-    expect(fn.mock.calls.length).toEqual(1);
+    expect(fn).toHaveBeenCalledTimes(1);
   });
 });

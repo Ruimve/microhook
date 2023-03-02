@@ -31,7 +31,7 @@ describe('测试 useBoundingClientRect', () => {
       }
     });
 
-    expect(getBoundingClientRect.mock.calls.length).toEqual(1);
+    expect(getBoundingClientRect).toHaveBeenCalledTimes(1);
 
     const [rect] = result.current;
 
@@ -59,7 +59,7 @@ describe('测试 useBoundingClientRect', () => {
     });
 
     // 测试环境无 ResizeObserver, 无法调用
-    expect(getBoundingClientRect.mock.calls.length).toEqual(0);
+    expect(getBoundingClientRect).toHaveBeenCalledTimes(0);
   });
 
   it('测试 dom 为 null 的情况', () => {
@@ -79,6 +79,6 @@ describe('测试 useBoundingClientRect', () => {
     });
 
     // 测试环境无 ResizeObserver, 无法调用
-    expect(getBoundingClientRect.mock.calls.length).toEqual(0);
+    expect(getBoundingClientRect).toHaveBeenCalledTimes(0);
   });
 });
