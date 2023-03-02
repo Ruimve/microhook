@@ -21,6 +21,6 @@ describe('测试 usePortal', () => {
 
     const com = screen.getByText('global component');
     expect(com.parentElement).toEqual(document.body);
-    expect(fn.mock.calls.length).toBe(1);
+    expect(fn).toHaveBeenCalledTimes(1);
   });
 });
