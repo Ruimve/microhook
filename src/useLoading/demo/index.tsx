@@ -13,10 +13,10 @@ function fetchData(keyword: string) {
 }
 
 function Demo() {
-  const [result, { wrapRequset: requestData }] = useLoading<string>(fetchData);
+  const [result, { wrapRequset: requestData }] = useLoading<typeof fetchData>(fetchData);
 
   const handleClick = () => {
-    requestData('1')
+    requestData('1');
   }
 
   return <div>

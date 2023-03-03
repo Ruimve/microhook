@@ -19,7 +19,7 @@ describe('测试 useLoading', () => {
         }, 1000);
       });
     });
-    const { result } = renderHook(() => useLoading<string>(callback));
+    const { result } = renderHook(() => useLoading<typeof callback>(callback));
     expect(result.current[0].loading).toEqual(false);
     act(() => {
       result.current[1].wrapRequset();
@@ -37,7 +37,7 @@ describe('测试 useLoading', () => {
         }, 1000);
       });
     });
-    const { result } = renderHook(() => useLoading<string>(callback));
+    const { result } = renderHook(() => useLoading<typeof callback>(callback));
     await act(async () => {
       await result.current[1].wrapRequset();
     });
@@ -54,7 +54,7 @@ describe('测试 useLoading', () => {
         }, 1000);
       });
     });
-    const { result } = renderHook(() => useLoading<string>(callback));
+    const { result } = renderHook(() => useLoading<typeof callback>(callback));
     await act(async () => {
       await result.current[1].wrapRequset();
     });
