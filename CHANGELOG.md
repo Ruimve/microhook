@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.3.0](https://github.com/robot12580/microhook/compare/v1.2.3...v1.3.0) (2023-03-03)
+
+
+### Features
+
+* add ts tools ReturnTypeWithPromise&lt;T&gt; ([ad6ad3b](https://github.com/robot12580/microhook/commit/ad6ad3b74b8ccba05abb91563997ebdf6327437c))
+* useLoading parameters infer ([431b4e1](https://github.com/robot12580/microhook/commit/431b4e1bd46bb88b0b2342777e1feab9b556f9a3))
+
+
+### Performance Improvements
+
+* ts ([28981ac](https://github.com/robot12580/microhook/commit/28981acf1e44e105075c4e450071ac94e5f4d499))
+
 ## [1.2.3](https://github.com/robot12580/microhook/compare/v1.2.2...v1.2.3) (2023-01-27)
 
 
