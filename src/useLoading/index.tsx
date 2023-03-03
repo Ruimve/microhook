@@ -41,7 +41,7 @@ function useLoading<
         setResponse(createResponse<U>(false, data));
       } catch (e) {
         // @ts-ignore
-        setResponse(createResponse<U>(false, e));
+        setResponse(createResponse<typeof e>(false, e));
       }
     },
     [request]
