@@ -25,12 +25,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/robot12580/microhook.git"
+    "url": "git+https://github.com/Ruimve/microhook.git"
   },
   "bugs": {
-    "url": "https://github.com/robot12580/microhook/issues"
+    "url": "https://github.com/Ruimve/microhook/issues"
   },
-  "homepage": "https://github.com/robot12580/microhook#readme",
+  "homepage": "https://github.com/Ruimve/microhook#readme",
   "dependencies": {
     "lodash": "^4.17.21",
     "react": "^18.2.0",
