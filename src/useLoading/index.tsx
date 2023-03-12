@@ -1,5 +1,5 @@
 /**
- * @author jingyu
+ * @author Ruimve
  * @description 处理接口或者 Promise 的 pending 状态
  */
 

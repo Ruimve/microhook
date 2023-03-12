@@ -1,5 +1,5 @@
 /**
- * @author jingyu
+ * @author Ruimve
  * @description 计算指定元素被子元素占据后的剩余高度
  */
 import React, { useState, useEffect } from 'react';

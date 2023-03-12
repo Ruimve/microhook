@@ -4,7 +4,7 @@
   "description": "Micro and reusable Hooks",
   "main": "es/index.js",
   "types": "types/index.d.ts",
-  "author": "jingyu",
+  "author": "Ruimve",
   "license": "MIT",
   "scripts": {
     "build": "rollup -c --bundleConfigAsCjs",
