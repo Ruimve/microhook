@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/Ruimve/microhook/compare/v1.3.0...v1.5.0) (2023-03-12)
+
+
+### Miscellaneous Chores
+
+* release 1.5.0 ([96f1f3e](https://github.com/Ruimve/microhook/commit/96f1f3e8cd225ca0d7ebc603d1224280c1556926))
+
 ## [1.3.0](https://github.com/Ruimve/microhook/compare/v1.2.3...v1.3.0) (2023-03-03)
 
 
