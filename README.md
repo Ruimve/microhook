@@ -5,7 +5,7 @@
     <img
       width="80"
       alt="Ruimve"
-      src="https://github.com/Ruimve/materials/blob/main/images/dog2.png?raw=true"
+      src="https://github.com/Ruimve/materials/blob/main/images/windmill.png?raw=true"
     />
   </a>
 
