@@ -27,15 +27,19 @@
 
 - [Introducing Hooks](#introducing-hooks)
 - [Installation](#installation)
-- [Hooks](#hooks)
+- [async hooks](#useloading)
   - [useLoading](#useloading)
-  - [useRestHeight](#userestheight)
+- [state hooks](#usebus)
   - [useBus](#usebus)
   - [useToggle](#usetoggle)
   - [useBoolean](#useboolean)
-  - [usePortal](#useportal)
-  - [useTimeout](#usetimeout)
+- [layout hooks](#userestheight)
+  - [useRestHeight](#userestheight)
   - [useBoundingClientRect](#useboundingclientrect)
+- [render hooks](#useportal)
+  - [usePortal](#useportal)
+- [timer hooks](#usetimeout)
+  - [useTimeout](#usetimeout)
 
 ## Introducing Hooks
 
