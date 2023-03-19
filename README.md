@@ -27,18 +27,18 @@
 
 - [Introducing Hooks](#introducing-hooks)
 - [Installation](#installation)
-- [async hooks](#useloading)
+- [Async Hooks](#async-hooks)
   - [useLoading](#useloading)
-- [state hooks](#usebus)
+- [State Hooks](#state-hooks)
   - [useBus](#usebus)
   - [useToggle](#usetoggle)
   - [useBoolean](#useboolean)
-- [layout hooks](#userestheight)
+- [Layout Hooks](#layout-hooks)
   - [useRestHeight](#userestheight)
   - [useBoundingClientRect](#useboundingclientrect)
-- [render hooks](#useportal)
+- [Render Hooks](#render-hooks)
   - [usePortal](#useportal)
-- [timer hooks](#usetimeout)
+- [Timer Hooks](#timer-hooks)
   - [useTimeout](#usetimeout)
 
 ## Introducing Hooks
@@ -61,7 +61,7 @@ yarn add microhook
 ```
 
 
-## Hooks
+## Async Hooks
 
 ### useLoading
 
@@ -83,25 +83,7 @@ Get `pending` state and resulting value via `useLoading`.
 
 For more information [view demo][use-loading-demo].
 
-### useRestHeight
-
-Get the remaining height of the container and add a [ResizeObserver][resize-observer] via `useRestHeight`.
-
-#### Params
-
-|Name|Type|Default|Description|
-|:--:|:--:|:-----:|:----------|
-|**`container`**|`{ElementConfigType}`|`-`|DOM container.|
-|**`children`**|`{Array<ElementConfigType>}`|`-`|Container element.|
-|**`offsets`**|`{Array<string>}`|`-`|Array of height offsets.|
-
-#### Result
-|Name|Type|Default|Description|
-|:--:|:--:|:-----:|:----------|
-|**`value`**|`{number}`|`-`|Remaining height.|
-|**`action`**|`{{updateRestHeight}}`|`-`|A function that updates remaining height.|
-
-For more information [view demo][use-rest-height-demo].
+## State Hooks
 
 ## useBus
 
@@ -158,45 +140,27 @@ Alternate `true` and `false` value based on useToggle.
 
 For more information [view demo][use-boolean-demo].
 
-## usePortal
+## Layout Hooks
 
-[Portals][portals] provide a first-class way to render children into a DOM node that exists outside the DOM hierarchy of the parent component.
+### useRestHeight
 
-`usePortal` will return a memoized version of the component that only changes if one of the dependencies has changed. This is useful when passing callbacks to optimized components that rely on reference equality to prevent unnecessary renders.
-
-#### Params
-
-|Name|Type|Default|Description|
-|:--:|:--:|:-----:|:----------|
-|**`callback`**|`{() => React.ReactNode}`|`-`|A function that returns a React.ReactNode.|
-|**`container`**|`{HTMLElement}`|`-`|DOM container.|
-
-#### Result
-|Name|Type|Default|Description|
-|:--:|:--:|:-----:|:----------|
-|**`value`**|`-`|`-`|-|
-|**`action`**|`{{render}}`|`-`|Function of rendering dom.|
-
-For more information [view demo][use-portal-demo].
-
-## useTimeout
-
-Create an `timer` that can persist for the full lifetime of the component.
+Get the remaining height of the container and add a [ResizeObserver][resize-observer] via `useRestHeight`.
 
 #### Params
 
 |Name|Type|Default|Description|
 |:--:|:--:|:-----:|:----------|
-|**`callback`**|`{() => void}`|`-`|A function that is executed when the time is up.|
-|**`delay`**|`{number}`|`0`|Delay time.|
+|**`container`**|`{ElementConfigType}`|`-`|DOM container.|
+|**`children`**|`{Array<ElementConfigType>}`|`-`|Container element.|
+|**`offsets`**|`{Array<string>}`|`-`|Array of height offsets.|
 
 #### Result
 |Name|Type|Default|Description|
 |:--:|:--:|:-----:|:----------|
-|**`value`**|`{NodeJS.Timeout}`|`-`|Timer.|
-|**`action`**|`{{on,off}}`|`-`|Enable timer.|
+|**`value`**|`{number}`|`-`|Remaining height.|
+|**`action`**|`{{updateRestHeight}}`|`-`|A function that updates remaining height.|
 
-For more information [view demo][use-timeout-demo].
+For more information [view demo][use-rest-height-demo].
 
 ## useBoundingClientRect
 
@@ -217,6 +181,50 @@ Providing information about the size of an element and its position relative to 
 |**`action`**|`{{updateRect}}`|`-`|Function of updating size and position information.|
 
 For more information [view demo][use-bounding-client-rect].
+
+## Render Hooks
+
+### usePortal
+
+[Portals][portals] provide a first-class way to render children into a DOM node that exists outside the DOM hierarchy of the parent component.
+
+`usePortal` will return a memoized version of the component that only changes if one of the dependencies has changed. This is useful when passing callbacks to optimized components that rely on reference equality to prevent unnecessary renders.
+
+#### Params
+
+|Name|Type|Default|Description|
+|:--:|:--:|:-----:|:----------|
+|**`callback`**|`{() => React.ReactNode}`|`-`|A function that returns a React.ReactNode.|
+|**`container`**|`{HTMLElement}`|`-`|DOM container.|
+
+#### Result
+|Name|Type|Default|Description|
+|:--:|:--:|:-----:|:----------|
+|**`value`**|`-`|`-`|-|
+|**`action`**|`{{render}}`|`-`|Function of rendering dom.|
+
+For more information [view demo][use-portal-demo].
+
+## Timer Hooks
+
+### useTimeout
+
+Create an `timer` that can persist for the full lifetime of the component.
+
+#### Params
+
+|Name|Type|Default|Description|
+|:--:|:--:|:-----:|:----------|
+|**`callback`**|`{() => void}`|`-`|A function that is executed when the time is up.|
+|**`delay`**|`{number}`|`0`|Delay time.|
+
+#### Result
+|Name|Type|Default|Description|
+|:--:|:--:|:-----:|:----------|
+|**`value`**|`{NodeJS.Timeout}`|`-`|Timer.|
+|**`action`**|`{{on,off}}`|`-`|Enable timer.|
+
+For more information [view demo][use-timeout-demo].
 
 [npm]: https://www.npmjs.com/
 [yarn]: https://classic.yarnpkg.com
