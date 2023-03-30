@@ -9,7 +9,7 @@
     />
   </a>
 
-  <p>🔥🔥 Check out microhook! 🚀 It's a lightweight library that makes it easy to use React hooks in your code. 💻</p>
+  <p>🔥🔥 Check out microhook!<br /> 🚀 It's a lightweight library that makes it easy to use React hooks in your code. 💻</p>
 </div>
 <hr />
 
