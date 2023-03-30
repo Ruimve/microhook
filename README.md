@@ -34,7 +34,7 @@
   - [useToggle](#usetoggle)
   - [useBoolean](#useboolean)
 - [Layout Hooks](#layout-hooks)
-  - [useRestHeight](#userestheight)
+  - [useRestHeight](#userestheight-calculate-remaining-height-dynamically)
   - [useBoundingClientRect](#useboundingclientrect)
 - [Render Hooks](#render-hooks)
   - [usePortal](#useportal)
@@ -166,7 +166,7 @@ For more information [view demo][use-boolean-demo].
 
 ## Layout Hooks
 
-### useRestHeight
+### useRestHeight: Calculate Remaining Height Dynamically!
 
 👋 Hey there! Let me introduce you to **`useRestHeight`**, a React hook that calculates the remaining height of a container after subtracting the height of its child elements and any specified offsets.
 
