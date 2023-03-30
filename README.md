@@ -144,22 +144,22 @@ For more information [view demo][use-boolean-demo].
 
 ### useRestHeight
 
-👋 Hey there! Let me introduce you to the useRestHeight hook.
+👋 Hey there! Let me introduce you to **useRestHeight**, a React hook that calculates the remaining height of a container after subtracting the height of its child elements and any specified offsets.
 
-**useRestHeight** is a React hook that calculates the remaining height of a container after subtracting the height of its child elements and any specified offsets. This hook is particularly useful when you want to calculate the height of a container and use it to dynamically adjust the layout of its contents.
+🚀 This hook is perfect when you want to dynamically adjust the layout of a container based on its available height.
 
-To use this hook, you need to import it from the corresponding module and call it inside a functional component. The hook takes three arguments:
+👉 To use this hook, simply import it from the corresponding module and call it inside a functional component with three arguments:
 
 * **parent**: A string or a React ref object that refers to the container element whose height you want to calculate.
 * **children**: An array of strings or React ref objects that refer to the child elements whose heights you want to subtract from the parent height.
 * **offsets**: An array of numbers that specify any additional height offsets that you want to subtract from the parent height.
 
-The hook returns an array with two elements:
+🎉 The hook returns an array with two elements:
 
-* restHeight: The remaining height of the container after subtracting the child elements and offsets.
-* action: An object with a single function recalculateHeight that you can call to recalculate the container height when needed.
+* **restHeight**: The remaining height of the container after subtracting the child elements and offsets.
+* **action**: An object with a single function recalculateHeight that you can call to recalculate the container height when needed.
 
-Overall, useRestHeight is a convenient hook that can simplify the process of dynamically adjusting the layout of container elements in your React applications. 😊 For more information [view demo][use-rest-height-demo].
+💡 Overall, **useRestHeight** simplifies the process of dynamically adjusting the layout of container elements in your React applications. Want to see a demo? [Check it out!][use-rest-height-demo]
 
 ## useBoundingClientRect
 
