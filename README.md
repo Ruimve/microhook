@@ -63,7 +63,7 @@ yarn add microhook
 
 ## Async Hooks
 
-### 🤩 useLoading: Simplify Your Async Requests!
+### useLoading: Simplify Your Async Requests!
 
 👋 Hey there! Let me introduce you to **`useLoading`** -- a custom React hook that makes handling the loading state of an API request or Promise a breeze. 🌬️
 
