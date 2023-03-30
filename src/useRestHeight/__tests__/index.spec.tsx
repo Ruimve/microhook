@@ -1,9 +1,9 @@
-import React, { useRef } from "react";
+import React from "react";
 import { render, renderHook, screen } from "@testing-library/react";
 
 import { useRestHeight } from '../index';
 
-describe('测试 useRestHeight', () => {
+describe('Test useRestHeight', () => {
   beforeAll(() => {
     window.ResizeObserver =
       window.ResizeObserver ||
@@ -16,11 +16,11 @@ describe('测试 useRestHeight', () => {
       };
   });
 
-  it('当容器 container 不存在时, 高度为 0', () => {
+  it('should have a height of 0 when parent container does not exist', () => {
     const { result } = renderHook(
-      props => useRestHeight(props.container), {
+      props => useRestHeight(props.parent), {
       initialProps: {
-        container: null
+        parent: undefined
       }
     }
     );
@@ -28,16 +28,16 @@ describe('测试 useRestHeight', () => {
     expect(restHeight).toEqual(0);
   });
 
-  it('当容器 container 高度为 200, 并且没有子元素时, 高度为 200', () => {
+  it('should have a height of 200 when parent container has a height of 200 and no child elements', () => {
     const getBoundingClientRect = jest.fn().mockReturnValue({ height: 200 });
     HTMLElement.prototype.getBoundingClientRect = getBoundingClientRect;
 
-    render(<div className="container" style={{ height: 200 }}></div>);
+    render(<div className="parent" style={{ height: 200 }}></div>);
     const { result } = renderHook(
-      props => useRestHeight(props.container),
+      props => useRestHeight(props.parent),
       {
         initialProps: {
-          container: '.container'
+          parent: '.parent'
         }
       }
     );
@@ -45,7 +45,7 @@ describe('测试 useRestHeight', () => {
     expect(result.current[0]).toEqual(200);
   });
 
-  it('当容器 container 高度为 200, 有两个子元素高度分别为 20、40, 高度为 140', () => {
+  it('should have a height of 140 when parent container has a height of 200 and two child elements have heights of 20 and 40 respectively', () => {
     const getBoundingClientRect = jest.fn()
       .mockReturnValue({ height: 200 })
       .mockReturnValueOnce({ height: 200 })
@@ -57,16 +57,16 @@ describe('测试 useRestHeight', () => {
     HTMLElement.prototype.getBoundingClientRect = getBoundingClientRect;
 
     render(
-      <div className="container" style={{ height: 200 }}>
+      <div className="parent" style={{ height: 200 }}>
         <div className="first" style={{ height: 20 }} ></div>
         <div className="second" style={{ height: 40 }} ></div>
       </div>
     );
     const { result } = renderHook(
-      props => useRestHeight(props.container, props.children),
+      props => useRestHeight(props.parent, props.children),
       {
         initialProps: {
-          container: '.container',
+          parent: '.parent',
           children: ['.first', '.second']
         }
       }
@@ -75,7 +75,37 @@ describe('测试 useRestHeight', () => {
     expect(result.current[0]).toEqual(140);
   });
 
-  it('当容器 container 高度为 200, 有两个子元素高度分别为 20、40, 自定义偏移量为 5、10, 高度为 125', () => {
+  it('should have a height of 140 when parent container has a height of 200 and two child elements have heights of 20 and 40 respectively and elements are accessed by ID', () => {
+    const getBoundingClientRect = jest.fn()
+      .mockReturnValue({ height: 200 })
+      .mockReturnValueOnce({ height: 200 })
+      .mockReturnValueOnce({ height: 20 })
+      .mockReturnValueOnce({ height: 40 })
+      .mockReturnValueOnce({ height: 200 })
+      .mockReturnValueOnce({ height: 20 })
+      .mockReturnValueOnce({ height: 40 })
+    HTMLElement.prototype.getBoundingClientRect = getBoundingClientRect;
+
+    render(
+      <div className="parent" style={{ height: 200 }}>
+        <div className="first" style={{ height: 20 }} ></div>
+        <div id="second" style={{ height: 40 }} ></div>
+      </div>
+    );
+    const { result } = renderHook(
+      props => useRestHeight(props.parent, props.children),
+      {
+        initialProps: {
+          parent: '.parent',
+          children: ['.first', '#second', '#third']
+        }
+      }
+    );
+
+    expect(result.current[0]).toEqual(140);
+  });
+
+  it('when parent container has a height of 200, two child elements with heights of 20 and 40 respectively, custom offsets of 5 and 10, and a height of 125', () => {
     const getBoundingClientRect = jest.fn()
       .mockReturnValue({ height: 200 })
       .mockReturnValueOnce({ height: 200 })
@@ -87,20 +117,17 @@ describe('测试 useRestHeight', () => {
     HTMLElement.prototype.getBoundingClientRect = getBoundingClientRect;
 
     render(
-      <div className="container" style={{ height: 200 }}>
+      <div className="parent" style={{ height: 200 }}>
         <div className="first" style={{ height: 20 }} ></div>
         <div className="second" style={{ height: 40 }} ></div>
       </div>
     );
     const { result } = renderHook(
-      props => useRestHeight(props.container, props.children, props.offsets),
+      props => useRestHeight(props.parent, props.children, props.offsets),
       {
         initialProps: {
-          container: '.container',
-          children: [
-            { element: '.first', observer: true },
-            { element: '.second', observer: false }
-          ],
+          parent: '.parent',
+          children: ['.first', '.second'],
           offsets: [5, 10]
         }
       }
@@ -109,21 +136,21 @@ describe('测试 useRestHeight', () => {
     expect(result.current[0]).toEqual(125);
   });
 
-  it('模拟 useRef', () => {
+  it('simulates useRef', () => {
     const getBoundingClientRect = jest.fn().mockReturnValue({ height: 200 });
     HTMLElement.prototype.getBoundingClientRect = getBoundingClientRect;
 
-    render(<div className="container" style={{ height: 200 }}>useRef</div>);
+    render(<div className="parent" style={{ height: 200 }}>useRef</div>);
     const ref = { current: screen.getAllByText('useRef')[0] };
     const { result } = renderHook(
-      props => useRestHeight(props.container),
+      props => useRestHeight(props.parent),
       {
         initialProps: {
-          container: ref
+          parent: ref
         }
       }
     );
 
     expect(result.current[0]).toEqual(200);
-  })
+  });
 });

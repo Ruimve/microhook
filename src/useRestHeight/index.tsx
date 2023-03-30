@@ -1,96 +1,103 @@
 /**
  * @author Ruimve
- * @description 计算指定元素被子元素占据后的剩余高度
  */
-import React, { useState, useEffect } from 'react';
+
+import { useState, useEffect, RefObject } from 'react';
 import { ReturnValue } from '../define';
 
-type ElementType = string | React.MutableRefObject<Element | null> | null;
-type ConfigType = { element: ElementType, observer: boolean };
-type ElementConfigType = ElementType | ConfigType;
+type ElementArg = string | RefObject<HTMLElement>;
 
 interface Action {
-  updateRestHeight: () => void;
+  recalculateHeight: () => void;
 }
 
 /**
+ * Gets the HTMLElement from a string or RefObject.
  * 
- * @param container 容器, 如果是 string 表明是 dom 选择器, 否则是 dom-ref
- * @param children child 元素, 可以有多个, 类型同 container
- * @param offsets 自定义偏移量
- * @returns ReturnValue<number, Action>
+ * @param element - The string selector or RefObject to get the HTMLElement from.
+ * @returns The HTMLElement or null.
+ */
+function getElement(element: ElementArg | null | undefined): HTMLElement | null {
+  if (element instanceof Object && element.current instanceof HTMLElement) {
+    return element.current;
+  } else if (typeof element === 'string') {
+    return document.querySelector(element);
+  } else {
+    return null;
+  }
+}
+
+/**
+ * Returns an array with the remaining height of the parent element 
+ * after subtracting the height of its child elements and any specified offsets.
+ * 
+ * @param parent - The parent element or its RefObject.
+ * @param children - The child elements or their RefObjects.
+ * @param offsets - The offsets to subtract from the parent element's height.
+ * @returns An array with the remaining height and a recalculateHeight function.
  */
 function useRestHeight(
-  container?: ElementConfigType,
-  children: Array<ElementConfigType> = [],
-  offsets: number[] = []
+  parent?: ElementArg,
+  children?: ElementArg[],
+  offsets: number[] = [],
 ): ReturnValue<number, Action> {
   const [restHeight, setRestHeight] = useState<number>(0);
 
-  const findDOM = (elementConfig?: ElementConfigType): HTMLElement[] => {
-    //@ts-ignore
-    const element = typeof elementConfig?.element !== 'undefined' ? elementConfig?.element : elementConfig;
+  /**
+   * Calculates the remaining height of the parent element and sets the restHeight state.
+   */
+  const updateHeight = () => {
+    const parentElement = getElement(parent);
+    const childElements =
+      children?.flatMap((child) =>
+        Array.from(getElement(child) ? [getElement(child)!] : []),
+      ) ?? [];
 
-    if (typeof element === 'string') {
-      return Array.from(document.querySelectorAll(element)) as HTMLElement[];
-    } else {
-      return element?.current ? [element?.current] : [];
+    if (!parentElement) {
+      return;
     }
+
+    const parentHeight = parentElement.getBoundingClientRect().height;
+    const childHeight = childElements.reduce(
+      (totalHeight, childRef) => totalHeight + childRef.getBoundingClientRect().height,
+      0,
+    );
+
+    const totalOffset = offsets.reduce((acc, curr) => acc + curr, 0);
+    setRestHeight(parentHeight - childHeight - totalOffset);
   }
 
-  const accumulate = (doms: HTMLElement[]) => {
-    return doms?.reduce((prv, cur) => prv + cur?.getBoundingClientRect()?.height, 0);
-  }
-
-  const calcRestHeight = () => {
-    const containerDOM = findDOM(container);
-    if (containerDOM?.length > 0) {
-      const wrapperHeight = accumulate(containerDOM);
-      const childrenTotal = children.reduce((prv, cur) => prv + accumulate(findDOM(cur)), 0);
-      const offsetsTotal = offsets.reduce((prv, cur) => prv + cur, 0);
-      return wrapperHeight - childrenTotal - offsetsTotal;
-    }
-    return 0;
-  }
-
-  const updateRestHeight = () => {
-    const restHeight = calcRestHeight();
-    setRestHeight(restHeight);
-  }
-
+  /**
+   * Sets up ResizeObservers on the parent and child elements to update the restHeight state.
+   * Returns a cleanup function to disconnect the observers.
+   */
   useEffect(() => {
-    updateRestHeight();
-  }, [container, children, offsets]);
+    updateHeight();
 
+    const parentElement = getElement(parent);
+    const childElements =
+      children?.flatMap((child) =>
+        Array.from(getElement(child) ? [getElement(child)!] : []),
+      ) ?? [];
 
-  const observe = (resizeObserver: ResizeObserver, elementConfig?: ElementConfigType) => {
-    const doms = findDOM(elementConfig);
-    //@ts-ignore
-    const observer = typeof elementConfig?.observer !== 'undefined' ? elementConfig?.observer : true;
+    if (parentElement) {
+      const parentObserver = new ResizeObserver(updateHeight);
+      parentObserver.observe(parentElement);
 
-    if (observer) {
-      doms?.forEach(dom => resizeObserver.observe(dom));
+      const childObservers = childElements.map((child) => {
+        const observer = new ResizeObserver(updateHeight);
+        observer.observe(child);
+        return observer;
+      });
+
+      return () => {
+        parentObserver.disconnect();
+        childObservers.forEach((observer) => observer.disconnect());
+      };
     }
-  }
+  }, [parent, children, offsets]);
 
-  useEffect(() => {
-    /** 创建监听器 */
-    const resizeObserver = new ResizeObserver(updateRestHeight);
-
-    /** 给容器添加监听 */
-    observe(resizeObserver, container);
-
-    /** 给子元素添加监听 */
-    children?.forEach(child => observe(resizeObserver, child));
-
-    return () => {
-      resizeObserver.disconnect();
-    }
-  }, [container, children]);
-
-  return [restHeight, { updateRestHeight }];
+  return [restHeight, { recalculateHeight: updateHeight }];
 }
 
-export {
-  useRestHeight
-}
+export { useRestHeight };
