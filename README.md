@@ -65,23 +65,47 @@ yarn add microhook
 
 ### useLoading
 
-A promise represents a single asynchronous operation that hasn’t been completed yet, but is expected in the future. There are three states of promises, pending, fulfilled and rejected.
+👋 Hey there! Let me introduce you to \`**useLoading**\` -- a custom React hook that makes handling the loading state of an API request or Promise a breeze. 🌬️
 
-Get `pending` state and resulting value via `useLoading`.
+💻 By utilizing \`**useLoading**\`, you can easily implement an elegant solution to handle asynchronous requests in your React application. With just a few lines of code, you can keep track of loading status and display a spinner or loading message to keep your users informed of the ongoing process. 🚀
 
-#### Params
+🤔 Still not sure how it works? Let's break it down:
 
-|Name|Type|Default|Description|
-|:--:|:--:|:-----:|:----------|
-|**`request`**|`{(...args:any[]) => Promise}`|`-`|A function that returns a promise.|
+* A function that takes any number of arguments and returns a Promise.
+* An optional array of arguments.
+* An optional error type.
 
-#### Result
-|Name|Type|Default|Description|
-|:--:|:--:|:-----:|:----------|
-|**`value`**|`{Response<T>}`|`-`|Boolean value.|
-|**`action`**|`{{wrapRequset}}`|`-`|A function that returns a promise.|
+🎉 The return value of \`**useLoading**\` is a tuple, containing two items:
 
-For more information [view demo][use-loading-demo].
+An object with two properties, \`**loading**\` and \`**data**\`. \`**loading**\` is a boolean that indicates whether the request is currently being processed or not. \`**data**\` is an object containing the response data from the request.
+
+An object with a single property, \`**wrapRequest**\`, which is an asynchronous function that wraps the original request and handles the loading state.
+
+💡 Here's a quick example of how to use \`**useLoading**\` in your code:
+
+```tsx
+import { useLoading } from './useLoading';
+
+async function fetchSomeData(arg1: string, arg2: number): Promise<{ message: string }> {
+  // fetch data here...
+}
+
+function MyComponent() {
+  const [response, { wrapRequset }] = useLoading(fetchSomeData);
+
+  useEffect(() => {
+    wrapRequset('some argument', 123);
+  }, []);
+
+  if (response.loading) {
+    return <Spinner />;
+  }
+
+  return <div>{response.data?.message}</div>;
+}
+```
+
+🎓 As you can see, \`**useLoading**\` simplifies handling the loading state and error handling of an API request or Promise, allowing you to focus on the core functionality of your application. Give it a try and let me know what you think! 🤩 [For more information.][use-loading-demo]
 
 ## State Hooks
 
@@ -144,22 +168,22 @@ For more information [view demo][use-boolean-demo].
 
 ### useRestHeight
 
-👋 Hey there! Let me introduce you to **useRestHeight**, a React hook that calculates the remaining height of a container after subtracting the height of its child elements and any specified offsets.
+👋 Hey there! Let me introduce you to \`**useRestHeight**\`, a React hook that calculates the remaining height of a container after subtracting the height of its child elements and any specified offsets.
 
 🚀 This hook is perfect when you want to dynamically adjust the layout of a container based on its available height.
 
 👉 To use this hook, simply import it from the corresponding module and call it inside a functional component with three arguments:
 
-* **parent**: A string or a React ref object that refers to the container element whose height you want to calculate.
-* **children**: An array of strings or React ref objects that refer to the child elements whose heights you want to subtract from the parent height.
-* **offsets**: An array of numbers that specify any additional height offsets that you want to subtract from the parent height.
+* \`**parent**\`: A string or a React ref object that refers to the container element whose height you want to calculate.
+* \`**children**\`: An array of strings or React ref objects that refer to the child elements whose heights you want to subtract from the parent height.
+* \`**offsets**\`: An array of numbers that specify any additional height offsets that you want to subtract from the parent height.
 
 🎉 The hook returns an array with two elements:
 
-* **restHeight**: The remaining height of the container after subtracting the child elements and offsets.
-* **action**: An object with a single function recalculateHeight that you can call to recalculate the container height when needed.
+* \`**restHeight**\`: The remaining height of the container after subtracting the child elements and offsets.
+* \`**action**\`: An object with a single function recalculateHeight that you can call to recalculate the container height when needed.
 
-💡 Overall, **useRestHeight** simplifies the process of dynamically adjusting the layout of container elements in your React applications. Want to see a demo? [Check it out!][use-rest-height-demo]
+💡 Overall, \`**useRestHeight**\` simplifies the process of dynamically adjusting the layout of container elements in your React applications. Want to see a demo? [Check it out!][use-rest-height-demo]
 
 ## useBoundingClientRect
 
