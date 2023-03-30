@@ -28,7 +28,7 @@
 - [Introducing Hooks](#introducing-hooks)
 - [Installation](#installation)
 - [Async Hooks](#async-hooks)
-  - [useLoading](#useloading)
+  - [useLoading](#🤩-useloading-simplify-your-async-requests)
 - [State Hooks](#state-hooks)
   - [useBus](#usebus)
   - [useToggle](#usetoggle)
@@ -63,7 +63,7 @@ yarn add microhook
 
 ## Async Hooks
 
-### useLoading
+### 🤩 useLoading: Simplify Your Async Requests!
 
 👋 Hey there! Let me introduce you to **`useLoading`** -- a custom React hook that makes handling the loading state of an API request or Promise a breeze. 🌬️
 
