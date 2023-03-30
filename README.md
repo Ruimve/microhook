@@ -28,7 +28,7 @@
 - [Introducing Hooks](#introducing-hooks)
 - [Installation](#installation)
 - [Async Hooks](#async-hooks)
-  - [useLoading](#🤩-useloading-simplify-your-async-requests)
+  - [useLoading](#useloading-simplify-your-async-requests)
 - [State Hooks](#state-hooks)
   - [useBus](#usebus)
   - [useToggle](#usetoggle)
