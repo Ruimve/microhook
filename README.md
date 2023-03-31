@@ -38,13 +38,13 @@
 
 **`Microhook`** is a lightweight React Hooks library that aims to provide some excellent custom Hooks to help developers improve development efficiency and code quality. 💪
 
-Microhook's main features include:
+**`Microhook's`** main features include:
 
 👉 **Simplicity and ease of use**: The usage of each Hook is very simple and easy to understand, and the amount of code is very small.
 
-🚀 **High efficiency and practicality**: Each Hook provided by Microhook is very practical and can be directly applied to projects, helping developers quickly solve some common problems.
+🚀 **High efficiency and practicality**: Each Hook provided by **`Microhook`** is very practical and can be directly applied to projects, helping developers quickly solve some common problems.
 
-💯 **Stable quality**: Microhook has been fully tested and validated, and the code quality is guaranteed, so you can use it with confidence.
+💯 **Stable quality**: **`Microhook`** has been fully tested and validated, and the code quality is guaranteed, so you can use it with confidence.
 
 Microhook currently provides multiple Hooks, such as **`useLoading`**, **`usePortal`**, **`useRestHeight`**, etc. These Hooks can help you optimize your React projects, improve page performance and interaction experience. If you want to speed up your React development and improve your code quality, **`Microhook`** is definitely worth a try. 😎
 
