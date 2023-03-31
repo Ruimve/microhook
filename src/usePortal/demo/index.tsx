@@ -18,7 +18,7 @@ function Demo() {
   const [visible, setVisible] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  /** 为了避免重复渲染, 请使用 useCallback 和 React.memo */
+  /** To avoid re-render, please use useCallback and React.memo */
   const createExample = useCallback(() => <MemoNode visible={visible} />, [visible]);
   const [, { render }] = usePortal(
     createExample,
@@ -27,7 +27,7 @@ function Demo() {
   return (
     <div className='portal-demo'>
       {String(visible)}\{String(loading)}
-      {render()}
+      {render() || null}
       <div>
         <button onClick={() => { setVisible(!visible) }}>
           change visible

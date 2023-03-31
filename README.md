@@ -32,7 +32,7 @@
 - [Layout Hooks](#layout-hooks)
   - [useRestHeight](#userestheight-calculate-remaining-height-dynamically)
 - [Render Hooks](#render-hooks)
-  - [usePortal](#useportal)
+  - [usePortal](#useportal-teleport-your-react-components-anywhere)
 
 ## Introducing Hooks
 
@@ -98,7 +98,7 @@ function MyComponent() {
 }
 ```
 
-🎓 As you can see, **`useLoading`** simplifies handling the loading state and error handling of an API request or Promise, allowing you to focus on the core functionality of your application. Give it a try and let me know what you think! 🤩 [For more information.][use-loading-demo]
+🎓 As you can see, **`useLoading`** simplifies handling the loading state and error handling of an API request or Promise, allowing you to focus on the core functionality of your application. Give it a try and let me know what you think! 🤩 [For more information!][use-loading-demo]
 
 ## Layout Hooks
 
@@ -123,26 +123,28 @@ function MyComponent() {
 
 ## Render Hooks
 
-### usePortal
+### usePortal: Teleport Your React Components Anywhere!
 
-[Portals][portals] provide a first-class way to render children into a DOM node that exists outside the DOM hierarchy of the parent component.
+🚀 **`usePortal`** is a React hook that allows you to easily render content outside of the component hierarchy. Simply pass in a render function and a container, and **`usePortal`**  will take care of the rest. It's perfect for creating modals, tooltips, and other UI elements that need to be rendered outside of the main content area.
 
-`usePortal` will return a memoized version of the component that only changes if one of the dependencies has changed. This is useful when passing callbacks to optimized components that rely on reference equality to prevent unnecessary renders.
+Here's an example of how to use it:
 
-#### Params
+```tsx
+import { usePortal } from 'microhook';
 
-|Name|Type|Default|Description|
-|:--:|:--:|:-----:|:----------|
-|**`callback`**|`{() => React.ReactNode}`|`-`|A function that returns a React.ReactNode.|
-|**`container`**|`{HTMLElement}`|`-`|DOM container.|
+function MyModal() {
+  const { render } = usePortal(() => (
+    <div className="modal">
+      <h2>Modal title</h2>
+      <p>Modal content goes here...</p>
+    </div>
+  ), document.body);
 
-#### Result
-|Name|Type|Default|Description|
-|:--:|:--:|:-----:|:----------|
-|**`value`**|`-`|`-`|-|
-|**`action`**|`{{render}}`|`-`|Function of rendering dom.|
+  return render();
+}
+```
 
-For more information [view demo][use-portal-demo].
+👉 Make sure to wrap the render function in **`useCallback`** and memoize your component with **`React.memo`** for optimal performance. [For more information!][use-portal-demo]
 
 [npm]: https://www.npmjs.com/
 [yarn]: https://classic.yarnpkg.com
