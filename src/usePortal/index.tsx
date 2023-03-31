@@ -1,5 +1,5 @@
-import { useCallback } from 'react';
-import ReactDOM from 'react-dom';
+import { useCallback, useMemo } from 'react';
+import { createPortal } from 'react-dom';
 import { ReturnValue } from '../define';
 
 interface Action {
@@ -12,16 +12,19 @@ interface Action {
  * @returns Render function: () => JSX.Element
  */
 function usePortal(callback: () => React.ReactNode, container: HTMLElement): ReturnValue<undefined, Action> {
+  const content = useMemo(() => callback(), [callback]);
+
   const render = useCallback(
-    () => {
-      const result = callback();
-      return ReactDOM.createPortal(result, container)
-    },
-    [callback, container]
+    () => createPortal(content, container),
+    [content, container]
   );
+
   return [, { render }];
 }
 
 export {
   usePortal
 }
+
+
+

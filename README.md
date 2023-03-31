@@ -29,17 +29,10 @@
 - [Installation](#installation)
 - [Async Hooks](#async-hooks)
   - [useLoading](#useloading-simplify-your-async-requests)
-- [State Hooks](#state-hooks)
-  - [useBus](#usebus)
-  - [useToggle](#usetoggle)
-  - [useBoolean](#useboolean)
 - [Layout Hooks](#layout-hooks)
   - [useRestHeight](#userestheight-calculate-remaining-height-dynamically)
-  - [useBoundingClientRect](#useboundingclientrect)
 - [Render Hooks](#render-hooks)
   - [usePortal](#useportal)
-- [Timer Hooks](#timer-hooks)
-  - [useTimeout](#usetimeout)
 
 ## Introducing Hooks
 
@@ -107,63 +100,6 @@ function MyComponent() {
 
 🎓 As you can see, **`useLoading`** simplifies handling the loading state and error handling of an API request or Promise, allowing you to focus on the core functionality of your application. Give it a try and let me know what you think! 🤩 [For more information.][use-loading-demo]
 
-## State Hooks
-
-## useBus
-
-Sometimes it is difficult to pass events between peer Components, we can create a bus via `useBus` to complete it easily and it's returned object will persist for the full lifetime of the component.
-
-#### Params
-
-|Name|Type|Default|Description|
-|:--:|:--:|:-----:|:----------|
-|**`-`**|`{-}`|`-`|-|
-
-#### Result
-|Name|Type|Default|Description|
-|:--:|:--:|:-----:|:----------|
-|**`value`**|`{Bus}`|`-`|Bus instance.|
-|**`action`**|`-`|`-`|-|
-
-For more information [view demo][use-bus-demo].
-
-## useToggle
-
-A short handle that alternates between two states. 
-
-#### Params
-
-|Name|Type|Default|Description|
-|:--:|:--:|:-----:|:----------|
-|**`left`**|`{any}`|`-`|Left value.|
-|**`right`**|`{any}`|`-`|Right value.|
-
-#### Result
-|Name|Type|Default|Description|
-|:--:|:--:|:-----:|:----------|
-|**`value`**|`{any}`|`-`|Left and right value.|
-|**`action`**|`{{setLeft,setRight,toggle}}`|`-`|Function of changing value.|
-
-For more information [view demo][use-toggle-demo].
-
-## useBoolean
-
-Alternate `true` and `false` value based on useToggle.
-
-#### Params
-
-|Name|Type|Default|Description|
-|:--:|:--:|:-----:|:----------|
-|**`initialValue`**|`{boolean}`|`-`|Boolean value.|
-
-#### Result
-|Name|Type|Default|Description|
-|:--:|:--:|:-----:|:----------|
-|**`value`**|`{boolean}`|`-`|Boolean value.|
-|**`action`**|`{{toggle}}`|`-`|Function of changing boolean value.|
-
-For more information [view demo][use-boolean-demo].
-
 ## Layout Hooks
 
 ### useRestHeight: Calculate Remaining Height Dynamically!
@@ -184,26 +120,6 @@ For more information [view demo][use-boolean-demo].
 * **`action`**: An object with a single function recalculateHeight that you can call to recalculate the container height when needed.
 
 💡 Overall, **`useRestHeight`** simplifies the process of dynamically adjusting the layout of container elements in your React applications. Want to see a demo? [Check it out!][use-rest-height-demo]
-
-## useBoundingClientRect
-
-Providing information about the size of an element and its position relative to the viewport and updating dom when size or position changes.
-
-#### Params
-
-|Name|Type|Default|Description|
-|:--:|:--:|:-----:|:----------|
-|**`element`**|`{RectElement}`|`-`|Element.|
-|**`options`**|`{{observer: boolean}}`|`0`|Whether to enable monitoring.|
-|**`deps`**|`{Array<any>}`|`0`|Rerender dependency list.|
-
-#### Result
-|Name|Type|Default|Description|
-|:--:|:--:|:-----:|:----------|
-|**`value`**|`{Rect}`|`-`|Size and Position information.|
-|**`action`**|`{{updateRect}}`|`-`|Function of updating size and position information.|
-
-For more information [view demo][use-bounding-client-rect].
 
 ## Render Hooks
 
@@ -227,27 +143,6 @@ For more information [view demo][use-bounding-client-rect].
 |**`action`**|`{{render}}`|`-`|Function of rendering dom.|
 
 For more information [view demo][use-portal-demo].
-
-## Timer Hooks
-
-### useTimeout
-
-Create an `timer` that can persist for the full lifetime of the component.
-
-#### Params
-
-|Name|Type|Default|Description|
-|:--:|:--:|:-----:|:----------|
-|**`callback`**|`{() => void}`|`-`|A function that is executed when the time is up.|
-|**`delay`**|`{number}`|`0`|Delay time.|
-
-#### Result
-|Name|Type|Default|Description|
-|:--:|:--:|:-----:|:----------|
-|**`value`**|`{NodeJS.Timeout}`|`-`|Timer.|
-|**`action`**|`{{on,off}}`|`-`|Enable timer.|
-
-For more information [view demo][use-timeout-demo].
 
 [npm]: https://www.npmjs.com/
 [yarn]: https://classic.yarnpkg.com
@@ -274,9 +169,4 @@ For more information [view demo][use-timeout-demo].
 
 [use-loading-demo]: https://github.com/Ruimve/microhook/blob/master/src/useLoading/demo/index.tsx
 [use-rest-height-demo]: https://github.com/Ruimve/microhook/blob/master/src/useRestHeight/demo/index.tsx
-[use-bus-demo]: https://github.com/Ruimve/microhook/blob/master/src/useBus/demo/index.tsx
-[use-toggle-demo]: https://github.com/Ruimve/microhook/blob/master/src/useToggle/demo/index.tsx
-[use-boolean-demo]: https://github.com/Ruimve/microhook/blob/master/src/useBoolean/demo/index.tsx
 [use-portal-demo]: https://github.com/Ruimve/microhook/blob/master/src/usePortal/demo/index.tsx
-[use-timeout-demo]: https://github.com/Ruimve/microhook/blob/master/src/useTimeout/demo/index.tsx
-[use-bounding-client-rect]: https://github.com/Ruimve/microhook/blob/master/src/useBoundingClientRect/demo/index.tsx
