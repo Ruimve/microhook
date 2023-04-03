@@ -29,6 +29,7 @@
 - [Installation](#installation)
 - [Async Hooks](#async-hooks)
   - [useLoading](#useloading-simplify-your-async-requests)
+  - [usePrefetch](#useprefetch-efficiently-prefetches-external-resources)
 - [Layout Hooks](#layout-hooks)
   - [useRestHeight](#userestheight-calculate-remaining-height-dynamically)
 - [Render Hooks](#render-hooks)
@@ -109,6 +110,28 @@ function MyComponent() {
 
 🎓 As you can see, **`useLoading`** simplifies handling the loading state and error handling of an API request or Promise, allowing you to focus on the core functionality of your application. Give it a try and let me know what you think! 🤩 [For more information!][use-loading-demo]
 
+### usePrefetch: Efficiently Prefetches External Resources!
+
+👋 Hi there! Let me introduce you to **`usePrefetch`**, a React hook for prefetching resources like images, scripts, and stylesheets.
+
+🤔 Why is it useful? By preloading resources, **`usePrefetch`** can improve perceived performance and reduce the likelihood of visible loading spinners or other loading indicators. This can make the app feel more responsive and improve the user experience.
+
+To use it, first import it from your React component:
+
+```tsx
+import { usePrefetch } from 'microhook';
+```
+
+Then, call the hook with an array of URLs and an optional options object:
+
+```tsx
+const urls = ['https://example.com/image1.jpg', 'https://example.com/image2.jpg'];
+const options = { type: 'link' };
+usePrefetch(urls, options);
+```
+
+This will asynchronously fetch the resources and cache them for later use, improving your website's performance. 🏎️  [For more information!][use-prefetch-demo]
+
 ## Layout Hooks
 
 ### useRestHeight: Calculate Remaining Height Dynamically!
@@ -181,3 +204,4 @@ function MyModal() {
 [use-loading-demo]: https://github.com/Ruimve/microhook/blob/master/src/useLoading/demo/index.tsx
 [use-rest-height-demo]: https://github.com/Ruimve/microhook/blob/master/src/useRestHeight/demo/index.tsx
 [use-portal-demo]: https://github.com/Ruimve/microhook/blob/master/src/usePortal/demo/index.tsx
+[use-prefetch-demo]: https://github.com/Ruimve/microhook/blob/master/src/usePrefetch/demo/index.tsx
