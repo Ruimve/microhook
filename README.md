@@ -27,12 +27,13 @@
 
 - [Introducing Hooks](#introducing-hooks)
 - [Installation](#installation)
-- [Async Hooks](#async-hooks)
+- [State](#state)
   - [useLoading](#useloading-simplify-your-async-requests)
+- [Side-effects](#side-effects)
   - [usePrefetch](#useprefetch-efficiently-prefetches-external-resources)
-- [Layout Hooks](#layout-hooks)
+- [Layout](#layout)
   - [useRestHeight](#userestheight-calculate-remaining-height-dynamically)
-- [Render Hooks](#render-hooks)
+- [DOM](#dom)
   - [usePortal](#useportal-teleport-your-react-components-anywhere)
 
 ## Introducing Hooks
@@ -64,7 +65,7 @@ yarn add microhook
 ```
 
 
-## Async Hooks
+## State
 
 ### useLoading: Simplify Your Async Requests!
 
@@ -110,6 +111,8 @@ function MyComponent() {
 
 🎓 As you can see, **`useLoading`** simplifies handling the loading state and error handling of an API request or Promise, allowing you to focus on the core functionality of your application. Give it a try and let me know what you think! 🤩 [For more information!][use-loading-demo]
 
+## Side-effects
+
 ### usePrefetch: Efficiently Prefetches External Resources!
 
 👋 Hi there! Let me introduce you to **`usePrefetch`**, a React hook for prefetching resources like images, scripts, and stylesheets.
@@ -132,7 +135,7 @@ usePrefetch(urls, options);
 
 This will asynchronously fetch the resources and cache them for later use, improving your website's performance. 🏎️  [For more information!][use-prefetch-demo]
 
-## Layout Hooks
+## Layout
 
 ### useRestHeight: Calculate Remaining Height Dynamically!
 
@@ -153,7 +156,7 @@ This will asynchronously fetch the resources and cache them for later use, impro
 
 💡 Overall, **`useRestHeight`** simplifies the process of dynamically adjusting the layout of container elements in your React applications. Want to see a demo? [Check it out!][use-rest-height-demo]
 
-## Render Hooks
+## DOM
 
 ### usePortal: Teleport Your React Components Anywhere!
 
