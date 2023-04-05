@@ -33,6 +33,7 @@
   - [usePrefetch](#useprefetch-efficiently-prefetches-external-resources)
 - [Interaction](#layout)
   - [useRestHeight](#userestheight-calculate-remaining-height-dynamically)
+  - [useIntersectionObserver](#useintersectionobserver-track-element-visibility-changes)
 - [DOM](#dom)
   - [usePortal](#useportal-teleport-your-react-components-anywhere)
 
