@@ -31,7 +31,7 @@
   - [useLoading](#useloading-simplify-your-async-requests)
 - [Side-effects](#side-effects)
   - [usePrefetch](#useprefetch-efficiently-prefetches-external-resources)
-- [Layout](#layout)
+- [Interaction](#layout)
   - [useRestHeight](#userestheight-calculate-remaining-height-dynamically)
 - [DOM](#dom)
   - [usePortal](#useportal-teleport-your-react-components-anywhere)
@@ -88,7 +88,7 @@ An object with a single property, **`wrapRequest`**, which is an asynchronous fu
 💡 Here's a quick example of how to use **`useLoading`** in your code:
 
 ```tsx
-import { useLoading } from './useLoading';
+import { useLoading } from 'microhook';
 
 async function fetchSomeData(arg1: string, arg2: number): Promise<{ message: string }> {
   // fetch data here...
@@ -135,7 +135,7 @@ usePrefetch(urls, options);
 
 This will asynchronously fetch the resources and cache them for later use, improving your website's performance. 🏎️  [For more information!][use-prefetch-demo]
 
-## Layout
+## Interaction
 
 ### useRestHeight: Calculate Remaining Height Dynamically!
 
@@ -155,6 +155,14 @@ This will asynchronously fetch the resources and cache them for later use, impro
 * **`action`**: An object with a single function recalculateHeight that you can call to recalculate the container height when needed.
 
 💡 Overall, **`useRestHeight`** simplifies the process of dynamically adjusting the layout of container elements in your React applications. Want to see a demo? [Check it out!][use-rest-height-demo]
+
+### useIntersectionObserver: Track element visibility changes.
+
+This hook allows you to detect when an element becomes visible in the viewport. You can use it to implement lazy-loading, infinite scrolling, or any other functionality that requires you to track an element's visibility.
+
+To use it, you simply need to pass a RefObject to the element you want to observe, along with any optional configuration options like the root element, root margin, and threshold. The hook returns a tuple containing the IntersectionObserverEntry for the observed element, and an empty object that you can use to dispatch any actions.
+
+So, if you want to make your web app more performant and user-friendly, give useIntersectionObserver a try! 👍[Demo is here][use-intersection-observer-demo]
 
 ## DOM
 
@@ -208,3 +216,4 @@ function MyModal() {
 [use-rest-height-demo]: https://github.com/Ruimve/microhook/blob/master/src/useRestHeight/demo/index.tsx
 [use-portal-demo]: https://github.com/Ruimve/microhook/blob/master/src/usePortal/demo/index.tsx
 [use-prefetch-demo]: https://github.com/Ruimve/microhook/blob/master/src/usePrefetch/demo/index.tsx
+[use-intersection-observer-demo]: https://github.com/Ruimve/microhook/blob/master/src/useIntersectionObserver/demo/index.tsx
