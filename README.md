@@ -190,6 +190,29 @@ function MyModal() {
 
 👉 Make sure to wrap the render function in **`useCallback`** and memoize your component with **`React.memo`** for optimal performance. [For more information!][use-portal-demo]
 
+### useMeasure: Track Element Measurements With Ease!
+
+To use the **`useMeasure`** hook, first import it into your component with the following code:
+
+```tsx
+import { useMeasure } from 'microhook';
+```
+
+Then, declare a ref for the element you want to measure with the **`useRef`** hook:
+
+```tsx
+const ref = useRef(null);
+```
+
+Finally, call the **`useMeasure`** hook with the ref as an argument, and destructure the **`measure`** object from the returned value:
+
+```tsx
+const [measure] = useMeasure(ref);
+```
+
+You can now access the measurements of the element in your component with **`measure.width`**, **`measure.height`**, **`measure.top`**, **`measure.right`**,**`measure.bottom`**, **`measure.left`**, **`measure.x`**, and **`measure.y`**. Whenever the size or position of the element changes, the measure object will automatically update with the new values. [For more information!][use-measure-demo]
+
+
 [npm]: https://www.npmjs.com/
 [yarn]: https://classic.yarnpkg.com
 [node]: https://nodejs.org
@@ -218,3 +241,4 @@ function MyModal() {
 [use-portal-demo]: https://github.com/Ruimve/microhook/blob/master/src/usePortal/demo/index.tsx
 [use-prefetch-demo]: https://github.com/Ruimve/microhook/blob/master/src/usePrefetch/demo/index.tsx
 [use-intersection-observer-demo]: https://github.com/Ruimve/microhook/blob/master/src/useIntersectionObserver/demo/index.tsx
+[use-measure-demo]: https://github.com/Ruimve/microhook/blob/master/src/useMeasure/demo/index.tsx
