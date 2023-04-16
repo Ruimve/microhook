@@ -36,6 +36,7 @@
   - [useIntersectionObserver](#useintersectionobserver-track-element-visibility-changes)
 - [DOM](#dom)
   - [usePortal](#useportal-teleport-your-react-components-anywhere)
+  - [useMeasure](#usemeasure-track-element-measurements-with-ease)
 
 ## Introducing Hooks
 
