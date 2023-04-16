@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.6.0](https://github.com/Ruimve/microhook/compare/v1.5.1...v1.6.0) (2023-04-16)
+
+
+### Features
+
+* useIntersectionObserver ([b80b533](https://github.com/Ruimve/microhook/commit/b80b533acb977885fef824a8da46065417059eaf))
+* useMeasure ([7300cc0](https://github.com/Ruimve/microhook/commit/7300cc01e205b6701e4596e2b51ff60c06a3fc90))
+* useOutClick ([cb3de96](https://github.com/Ruimve/microhook/commit/cb3de969671937002014e79a2f65d84be1053e95))
+* usePrefetch ([8fc4ec9](https://github.com/Ruimve/microhook/commit/8fc4ec9da6674020a61b67baa521973d7e33fc1b))
+
 ## [1.5.1](https://github.com/Ruimve/microhook/compare/v1.5.0...v1.5.1) (2023-03-12)
 
 
