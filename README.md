@@ -41,17 +41,17 @@
 
 ## Introducing Hooks
 
-**`Microhook`** is a lightweight React Hooks library that aims to provide some excellent custom Hooks to help developers improve development efficiency and code quality. 💪
+`Microhook` is a lightweight React Hooks library that aims to provide some excellent custom Hooks to help developers improve development efficiency and code quality. 💪
 
-**`Microhook's`** main features include:
+`Microhook's` main features include:
 
 👉 **Simplicity and ease of use**: The usage of each Hook is very simple and easy to understand, and the amount of code is very small.
 
-🚀 **High efficiency and practicality**: Each Hook provided by **`Microhook`** is very practical and can be directly applied to projects, helping developers quickly solve some common problems.
+🚀 **High efficiency and practicality**: Each Hook provided by `Microhook` is very practical and can be directly applied to projects, helping developers quickly solve some common problems.
 
-💯 **Stable quality**: **`Microhook`** has been fully tested and validated, and the code quality is guaranteed, so you can use it with confidence.
+💯 **Stable quality**: `Microhook` has been fully tested and validated, and the code quality is guaranteed, so you can use it with confidence.
 
-Microhook currently provides multiple Hooks, such as **`useLoading`**, **`usePortal`**, **`useRestHeight`**, etc. These Hooks can help you optimize your React projects, improve page performance and interaction experience. If you want to speed up your React development and improve your code quality, **`Microhook`** is definitely worth a try. 😎
+Microhook currently provides multiple Hooks, such as `useLoading`, `usePortal`, `useRestHeight`, etc. These Hooks can help you optimize your React projects, improve page performance and interaction experience. If you want to speed up your React development and improve your code quality, `Microhook` is definitely worth a try. 😎
 
 ## Installation
 
@@ -72,9 +72,9 @@ yarn add microhook
 
 ### useLoading: Simplify Your Async Requests!
 
-👋 Hey there! Let me introduce you to **`useLoading`** -- a custom React hook that makes handling the loading state of an API request or Promise a breeze. 🌬️
+👋 Hey there! Let me introduce you to `useLoading` -- a custom React hook that makes handling the loading state of an API request or Promise a breeze. 🌬️
 
-💻 By utilizing **`useLoading`**, you can easily implement an elegant solution to handle asynchronous requests in your React application. With just a few lines of code, you can keep track of loading status and display a spinner or loading message to keep your users informed of the ongoing process. 🚀
+💻 By utilizing `useLoading`, you can easily implement an elegant solution to handle asynchronous requests in your React application. With just a few lines of code, you can keep track of loading status and display a spinner or loading message to keep your users informed of the ongoing process. 🚀
 
 🤔 Still not sure how it works? Let's break it down:
 
@@ -82,13 +82,13 @@ yarn add microhook
 * An optional array of arguments.
 * An optional error type.
 
-🎉 The return value of **`useLoading`** is a tuple, containing two items:
+🎉 The return value of `useLoading` is a tuple, containing two items:
 
-An object with two properties, **`loading`** and **`data`**. **`loading`** is a boolean that indicates whether the request is currently being processed or not. **`data`** is an object containing the response data from the request.
+An object with two properties, `loading` and `data`. `loading` is a boolean that indicates whether the request is currently being processed or not. `data` is an object containing the response data from the request.
 
-An object with a single property, **`wrapRequest`**, which is an asynchronous function that wraps the original request and handles the loading state.
+An object with a single property, `wrapRequest`, which is an asynchronous function that wraps the original request and handles the loading state.
 
-💡 Here's a quick example of how to use **`useLoading`** in your code:
+💡 Here's a quick example of how to use `useLoading` in your code:
 
 ```tsx
 import { useLoading } from 'microhook';
@@ -112,15 +112,15 @@ function MyComponent() {
 }
 ```
 
-🎓 As you can see, **`useLoading`** simplifies handling the loading state and error handling of an API request or Promise, allowing you to focus on the core functionality of your application. Give it a try and let me know what you think! 🤩 [For more information!][use-loading-demo]
+🎓 As you can see, `useLoading` simplifies handling the loading state and error handling of an API request or Promise, allowing you to focus on the core functionality of your application. Give it a try and let me know what you think! 🤩 [For more information!][use-loading-demo]
 
 ## Side-effects
 
 ### usePrefetch: Efficiently Prefetches External Resources!
 
-👋 Hi there! Let me introduce you to **`usePrefetch`**, a React hook for prefetching resources like images, scripts, and stylesheets.
+👋 Hi there! Let me introduce you to `usePrefetch`, a React hook for prefetching resources like images, scripts, and stylesheets.
 
-🤔 Why is it useful? By preloading resources, **`usePrefetch`** can improve perceived performance and reduce the likelihood of visible loading spinners or other loading indicators. This can make the app feel more responsive and improve the user experience.
+🤔 Why is it useful? By preloading resources, `usePrefetch` can improve perceived performance and reduce the likelihood of visible loading spinners or other loading indicators. This can make the app feel more responsive and improve the user experience.
 
 To use it, first import it from your React component:
 
@@ -142,22 +142,22 @@ This will asynchronously fetch the resources and cache them for later use, impro
 
 ### useRestHeight: Calculate Remaining Height Dynamically!
 
-👋 Hey there! Let me introduce you to **`useRestHeight`**, a React hook that calculates the remaining height of a container after subtracting the height of its child elements and any specified offsets.
+👋 Hey there! Let me introduce you to `useRestHeight`, a React hook that calculates the remaining height of a container after subtracting the height of its child elements and any specified offsets.
 
 🚀 This hook is perfect when you want to dynamically adjust the layout of a container based on its available height.
 
 👉 To use this hook, simply import it from the corresponding module and call it inside a functional component with three arguments:
 
-* **`parent`**: A string or a React ref object that refers to the container element whose height you want to calculate.
-* **`children`**: An array of strings or React ref objects that refer to the child elements whose heights you want to subtract from the parent height.
-* **`offsets`**: An array of numbers that specify any additional height offsets that you want to subtract from the parent height.
+* **parent**: A string or a React ref object that refers to the container element whose height you want to calculate.
+* **children**: An array of strings or React ref objects that refer to the child elements whose heights you want to subtract from the parent height.
+* **offsets**: An array of numbers that specify any additional height offsets that you want to subtract from the parent height.
 
 🎉 The hook returns an array with two elements:
 
-* **`restHeight`**: The remaining height of the container after subtracting the child elements and offsets.
-* **`action`**: An object with a single function recalculateHeight that you can call to recalculate the container height when needed.
+* **restHeight**: The remaining height of the container after subtracting the child elements and offsets.
+* **action**: An object with a single function recalculateHeight that you can call to recalculate the container height when needed.
 
-💡 Overall, **`useRestHeight`** simplifies the process of dynamically adjusting the layout of container elements in your React applications. Want to see a demo? [Check it out!][use-rest-height-demo]
+💡 Overall, `useRestHeight` simplifies the process of dynamically adjusting the layout of container elements in your React applications. Want to see a demo? [Check it out!][use-rest-height-demo]
 
 ### useIntersectionObserver: Track element visibility changes.
 
@@ -169,15 +169,15 @@ So, if you want to make your web app more performant and user-friendly, give use
 
 ### useOutClick: Handle Outside Clicks In React!
 
-The code exports a single custom hook, **`useOutClick`**, which takes a handler function as a parameter and returns a tuple containing a ref object and an empty action object. Here's how to use it:
+The code exports a single custom hook, `useOutClick`, which takes a handler function as a parameter and returns a tuple containing a ref object and an empty action object. Here's how to use it:
 
-* Import: Import the **`useOutClick`** hook from its source file using the following code:
+* **Import**: Import the `useOutClick` hook from its source file using the following code:
 
 ```tsx
 import { useOutClick } from 'microhook';
 ```
 
-* Usage: Use the **`useOutClick`** hook in your functional component as follows:
+* Usage: Use the `useOutClick` hook in your functional component as follows:
 
 ```tsx
 const MyComponent = () => {
@@ -195,9 +195,9 @@ const MyComponent = () => {
 };
 ```
 
-In this example, we define a **`handleClickOutside`** function that will be called when the user clicks outside of the element. We then call the **`useOutClick`** hook, passing in the **`handleClickOutside`** function. The **`useOutClick`** hook returns a tuple containing a ref that we attach to the element we want to monitor, in this case a **`div`**, and an empty action object.
+In this example, we define a `handleClickOutside` function that will be called when the user clicks outside of the element. We then call the `useOutClick` hook, passing in the `handleClickOutside` function. The `useOutClick` hook returns a tuple containing a ref that we attach to the element we want to monitor, in this case a `div`, and an empty action object.
 
-* Types: The **`useOutClick`** hook is a generic function that takes a type parameter **`T`** that extends **`HTMLElement`**. This allows TypeScript to ensure that the ref object returned by the hook is properly typed to the monitored element.
+* **Types**: The `useOutClick` hook is a generic function that takes a type parameter `T` that extends `HTMLElement`. This allows TypeScript to ensure that the ref object returned by the hook is properly typed to the monitored element.
 
 That's it! Now you can detect when the user clicks outside of a specified element and take appropriate action.[Demo is here][use-intersection-observer-demo]
 
@@ -205,7 +205,7 @@ That's it! Now you can detect when the user clicks outside of a specified elemen
 
 ### usePortal: Teleport Your React Components Anywhere!
 
-🚀 **`usePortal`** is a React hook that allows you to easily render content outside of the component hierarchy. Simply pass in a render function and a container, and **`usePortal`**  will take care of the rest. It's perfect for creating modals, tooltips, and other UI elements that need to be rendered outside of the main content area.
+🚀 `usePortal` is a React hook that allows you to easily render content outside of the component hierarchy. Simply pass in a render function and a container, and `usePortal`  will take care of the rest. It's perfect for creating modals, tooltips, and other UI elements that need to be rendered outside of the main content area.
 
 Here's an example of how to use it:
 
@@ -224,29 +224,29 @@ function MyModal() {
 }
 ```
 
-👉 Make sure to wrap the render function in **`useCallback`** and memoize your component with **`React.memo`** for optimal performance. [For more information!][use-portal-demo]
+👉 Make sure to wrap the render function in `useCallback` and memoize your component with `React.memo` for optimal performance. [For more information!][use-portal-demo]
 
 ### useMeasure: Track Element Measurements With Ease!
 
-To use the **`useMeasure`** hook, first import it into your component with the following code:
+To use the `useMeasure` hook, first import it into your component with the following code:
 
 ```tsx
 import { useMeasure } from 'microhook';
 ```
 
-Then, declare a ref for the element you want to measure with the **`useRef`** hook:
+Then, declare a ref for the element you want to measure with the `useRef` hook:
 
 ```tsx
 const ref = useRef(null);
 ```
 
-Finally, call the **`useMeasure`** hook with the ref as an argument, and destructure the **`measure`** object from the returned value:
+Finally, call the `useMeasure` hook with the ref as an argument, and destructure the `measure` object from the returned value:
 
 ```tsx
 const [measure] = useMeasure(ref);
 ```
 
-You can now access the measurements of the element in your component with **`measure.width`**, **`measure.height`**, **`measure.top`**, **`measure.right`**,**`measure.bottom`**, **`measure.left`**, **`measure.x`**, and **`measure.y`**. Whenever the size or position of the element changes, the measure object will automatically update with the new values. [For more information!][use-measure-demo]
+You can now access the measurements of the element in your component with `measure.width`, `measure.height`, `measure.top`, `measure.right`,`measure.bottom`, `measure.left`, `measure.x`, and `measure.y`. Whenever the size or position of the element changes, the measure object will automatically update with the new values. [For more information!][use-measure-demo]
 
 
 [npm]: https://www.npmjs.com/
