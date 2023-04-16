@@ -34,6 +34,7 @@
 - [Interaction](#layout)
   - [useRestHeight](#userestheight-calculate-remaining-height-dynamically)
   - [useIntersectionObserver](#useintersectionobserver-track-element-visibility-changes)
+  - [useOutClick](#useoutclick-handle-outside-clicks-in-react)
 - [DOM](#dom)
   - [usePortal](#useportal-teleport-your-react-components-anywhere)
   - [useMeasure](#usemeasure-track-element-measurements-with-ease)
@@ -166,6 +167,40 @@ To use it, you simply need to pass a RefObject to the element you want to observ
 
 So, if you want to make your web app more performant and user-friendly, give useIntersectionObserver a try! 👍[Demo is here][use-intersection-observer-demo]
 
+### useOutClick: Handle Outside Clicks In React!
+
+The code exports a single custom hook, **`useOutClick`**, which takes a handler function as a parameter and returns a tuple containing a ref object and an empty action object. Here's how to use it:
+
+* Import: Import the **`useOutClick`** hook from its source file using the following code:
+
+```tsx
+import { useOutClick } from 'microhook';
+```
+
+* Usage: Use the **`useOutClick`** hook in your functional component as follows:
+
+```tsx
+const MyComponent = () => {
+  const handleClickOutside = () => {
+    // do something when user clicks outside of the element
+  };
+
+  const ref = useOutClick<HTMLDivElement>(handleClickOutside);
+
+  return (
+    <div ref={ref}>
+      {/* content of the element to monitor */}
+    </div>
+  );
+};
+```
+
+In this example, we define a **`handleClickOutside`** function that will be called when the user clicks outside of the element. We then call the **`useOutClick`** hook, passing in the **`handleClickOutside`** function. The **`useOutClick`** hook returns a tuple containing a ref that we attach to the element we want to monitor, in this case a **`div`**, and an empty action object.
+
+* Types: The **`useOutClick`** hook is a generic function that takes a type parameter **`T`** that extends **`HTMLElement`**. This allows TypeScript to ensure that the ref object returned by the hook is properly typed to the monitored element.
+
+That's it! Now you can detect when the user clicks outside of a specified element and take appropriate action.[Demo is here][use-intersection-observer-demo]
+
 ## DOM
 
 ### usePortal: Teleport Your React Components Anywhere!
@@ -243,3 +278,4 @@ You can now access the measurements of the element in your component with **`mea
 [use-prefetch-demo]: https://github.com/Ruimve/microhook/blob/master/src/usePrefetch/demo/index.tsx
 [use-intersection-observer-demo]: https://github.com/Ruimve/microhook/blob/master/src/useIntersectionObserver/demo/index.tsx
 [use-measure-demo]: https://github.com/Ruimve/microhook/blob/master/src/useMeasure/demo/index.tsx
+[use-intersection-observer-demo]: https://github.com/Ruimve/microhook/blob/master/src/useOutClick/demo/index.tsx
