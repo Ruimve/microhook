@@ -25,6 +25,7 @@
 
 ## Table of Contents
 
+- [Documentation](#documentation)
 - [Introducing Hooks](#introducing-hooks)
 - [Installation](#installation)
 - [State](#state)
@@ -38,6 +39,10 @@
 - [DOM](#dom)
   - [usePortal](#useportal-teleport-your-react-components-anywhere)
   - [useMeasure](#usemeasure-track-element-measurements-with-ease)
+
+## Documentation
+
+*The latest usage documentation site is now available online! [Explore our new documentation site here!](https://microhook.netlify.app/)*
 
 ## Introducing Hooks
 
