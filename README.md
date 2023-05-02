@@ -44,7 +44,7 @@
 
 *The latest usage documentation site is now available online! [Explore our new documentation site here!](https://microhook.netlify.app/)*
 
-*中文站点已经发布，[点击前往](https://microhook.netlify.app/zh-cn/)*
+*中文站点已经发布，[点击前往!](https://microhook.netlify.app/zh-cn/)*
 
 ## Introducing Hooks
 
