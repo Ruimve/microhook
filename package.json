@@ -1,6 +1,6 @@
 {
   "name": "microhook",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "🔥🔥 Check out microhook! 🚀 It's a lightweight library that makes it easy to use React hooks in your code. 💻",
   "main": "es/index.js",
   "types": "types/index.d.ts",
