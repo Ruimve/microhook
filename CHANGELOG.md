@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.7.0](https://github.com/Ruimve/microhook/compare/v1.6.0...v1.7.0) (2023-06-26)
+
+
+### Features
+
+* update docs ([25a20a8](https://github.com/Ruimve/microhook/commit/25a20a80e782fe5d97542bbbc2c7c532a411f368))
+
+
+### Bug Fixes
+
+* return parameters and catch error ([3d342be](https://github.com/Ruimve/microhook/commit/3d342beb9a2fb80130f6a81c7e8e0b66fcadda03))
+
 ## [1.6.0](https://github.com/Ruimve/microhook/compare/v1.5.1...v1.6.0) (2023-04-16)
 
 
